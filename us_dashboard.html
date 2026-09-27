@@ -1,0 +1,135 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>US Gambling Company Database</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; background-color: #f4f6f9; color: #333; margin: 0; padding: 20px; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        h1 { color: #1a202c; }
+        .card { background: white; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); padding: 20px; margin-bottom: 20px; }
+        .summary-card { background: #e2e8f0; padding: 15px; border-radius: 8px; margin-bottom: 20px; }
+        .summary-card h3 { margin-top: 0; color: #2d3748; }
+        .summary-card p { margin-bottom: 0; line-height: 1.6; }
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; }
+        th, td { text-align: left; padding: 12px; border-bottom: 1px solid #e2e8f0; }
+        th { background-color: #edf2f7; color: #4a5568; font-weight: 600; }
+        tr:hover { background-color: #f7fafc; }
+        .chart-container { position: relative; height: 400px; width: 100%; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>US Gambling Company Database Test</h1>
+        <p>Prioritization database for content planning — US market</p>
+
+        <div class="summary-card">
+            <h3>Missed Company Types Summary</h3>
+            <p>Beyond operators, platform providers, payment processors, and iGaming consultants, the US gambling industry also includes: game content studios and slot developers; sportsbook odds and risk management suppliers; affiliate marketers and lead generation networks; geolocation and compliance technology vendors; identity verification and KYC/AML providers; responsible gambling and player protection software firms; jackpot and progressive systems providers; lottery technology and instant ticket suppliers; horse racing tote and ADW technology companies; fantasy sports and DFS platform providers; social casino and free-to-play game developers; gambling-focused law firms and regulatory consultancies; gambling media, data, and analytics companies; testing labs and certification agencies; tribal gaming equipment and casino management system vendors; cashless wagering and digital wallet providers; CRM, loyalty, and marketing automation vendors for casinos; fraud prevention and chargeback mitigation services; and igaming licensing and market entry consultancies.</p>
+        </div>
+
+        <div class="card">
+            <h2>Top 10 States by Total Companies</h2>
+            <div class="chart-container">
+                <canvas id="stateChart"></canvas>
+            </div>
+        </div>
+
+        <div class="card">
+            <h2>Company Hierarchy Table</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Country</th>
+                        <th>State</th>
+                        <th>Total Companies</th>
+                        <th>List of Companies</th>
+                        <th>Type/Niche</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>USA</td><td>Alabama</td><td>2</td><td>Wind Creek Hospitality, Poarch Band of Creek Indians Gaming Authority</td><td>Tribal casino operator</td></tr>
+<tr><td>USA</td><td>Alaska</td><td>2</td><td>Alaska Railroad Corporation (gaming permits), Northern Lights Casino (tribal)</td><td>Limited charitable and tribal gaming</td></tr>
+<tr><td>USA</td><td>Arizona</td><td>4</td><td>Arizona Department of Gaming, Gila River Hotels & Casinos, Desert Diamond Casinos, Talking Stick Resort</td><td>Tribal casino and sports betting</td></tr>
+<tr><td>USA</td><td>Arkansas</td><td>3</td><td>Oaklawn Racing Casino Resort, Southland Casino Racing, Saracen Casino Resort</td><td>Racino and casino operator</td></tr>
+<tr><td>USA</td><td>California</td><td>6</td><td>San Manuel Band of Mission Indians, Pechanga Band of LuiseÃ±o Indians, Morongo Band of Mission Indians, California Gambling Control Commission, Cardroom operators (Commerce Casino, Hawaiian Gardens), California Lottery</td><td>Tribal casinos, cardrooms, lottery</td></tr>
+<tr><td>USA</td><td>Colorado</td><td>4</td><td>Colorado Division of Gaming, DoubleDown Interactive, Betfred USA Sports, Colorado Lottery</td><td>Sports betting, iGaming, lottery</td></tr>
+<tr><td>USA</td><td>Connecticut</td><td>3</td><td>Mohegan Gaming & Entertainment, Mashantucket Pequot Tribal Nation, Connecticut Lottery Corporation</td><td>Tribal casino and lottery</td></tr>
+<tr><td>USA</td><td>Delaware</td><td>2</td><td>Delaware Lottery, Delaware Park Casino & Racing</td><td>Racino and lottery</td></tr>
+<tr><td>USA</td><td>Florida</td><td>5</td><td>Seminole Tribe of Florida, Hard Rock International, Florida Lottery, Magic City Casino, Gulfstream Park Racing & Casino</td><td>Tribal casino, racino, lottery</td></tr>
+<tr><td>USA</td><td>Georgia</td><td>2</td><td>Georgia Lottery Corporation, Georgia Lottery (instant games)</td><td>Lottery</td></tr>
+<tr><td>USA</td><td>Hawaii</td><td>0</td><td></td><td>No legal gambling</td></tr>
+<tr><td>USA</td><td>Idaho</td><td>1</td><td>Idaho Lottery</td><td>Lottery</td></tr>
+<tr><td>USA</td><td>Illinois</td><td>5</td><td>Illinois Gaming Board, Rush Street Gaming, Penn Entertainment, Illinois Lottery, Churchill Downs Incorporated</td><td>Casino, racino, sports betting, lottery</td></tr>
+<tr><td>USA</td><td>Indiana</td><td>4</td><td>Indiana Gaming Commission, Caesars Entertainment, Indiana Grand Racing & Casino, Hoosier Lottery</td><td>Casino, racino, lottery</td></tr>
+<tr><td>USA</td><td>Iowa</td><td>3</td><td>Iowa Racing and Gaming Commission, Prairie Meadows Racetrack and Casino, Iowa Lottery</td><td>Racino, casino, lottery</td></tr>
+<tr><td>USA</td><td>Kansas</td><td>3</td><td>Kansas Racing and Gaming Commission, Kansas Star Casino, Kansas Lottery</td><td>Casino, lottery</td></tr>
+<tr><td>USA</td><td>Kentucky</td><td>3</td><td>Kentucky Horse Racing Commission, Churchill Downs, Kentucky Lottery Corporation</td><td>Horse racing, lottery</td></tr>
+<tr><td>USA</td><td>Louisiana</td><td>4</td><td>Louisiana Gaming Control Board, Caesars Entertainment, Boyd Gaming, Louisiana Lottery Corporation</td><td>Casino, racino, lottery</td></tr>
+<tr><td>USA</td><td>Maine</td><td>2</td><td>Maine Gambling Control Board, Maine State Lottery</td><td>Casino, lottery</td></tr>
+<tr><td>USA</td><td>Maryland</td><td>3</td><td>Maryland Lottery and Gaming Control Agency, Cordish Companies, Maryland Live! Casino & Hotel</td><td>Casino, lottery</td></tr>
+<tr><td>USA</td><td>Massachusetts</td><td>3</td><td>Massachusetts Gaming Commission, Wynn Resorts, Massachusetts Lottery</td><td>Casino, lottery</td></tr>
+<tr><td>USA</td><td>Michigan</td><td>5</td><td>Michigan Gaming Control Board, MotorCity Casino Hotel, MGM Grand Detroit, Michigan Lottery, PokerStars (iGaming)</td><td>Casino, iGaming, lottery</td></tr>
+<tr><td>USA</td><td>Minnesota</td><td>3</td><td>Minnesota Indian Gaming Association, Mystic Lake Casino Hotel, Minnesota State Lottery</td><td>Tribal casino, lottery</td></tr>
+<tr><td>USA</td><td>Mississippi</td><td>3</td><td>Mississippi Gaming Commission, Boyd Gaming, Mississippi Lottery Corporation</td><td>Casino, lottery</td></tr>
+<tr><td>USA</td><td>Missouri</td><td>3</td><td>Missouri Gaming Commission, Penn Entertainment, Missouri Lottery</td><td>Casino, lottery</td></tr>
+<tr><td>USA</td><td>Montana</td><td>2</td><td>Montana Gambling Control Division, Montana Lottery</td><td>Video gaming terminals, lottery</td></tr>
+<tr><td>USA</td><td>Nebraska</td><td>2</td><td>Nebraska Racing and Gaming Commission, Nebraska Lottery</td><td>Racino, lottery</td></tr>
+<tr><td>USA</td><td>Nevada</td><td>6</td><td>Nevada Gaming Control Board, MGM Resorts International, Caesars Entertainment, Las Vegas Sands, Wynn Resorts, Boyd Gaming</td><td>Casino, sports betting, iGaming</td></tr>
+<tr><td>USA</td><td>New Hampshire</td><td>2</td><td>New Hampshire Lottery Commission, DraftKings (sports betting)</td><td>Lottery, sports betting</td></tr>
+<tr><td>USA</td><td>New Jersey</td><td>6</td><td>New Jersey Division of Gaming Enforcement, Borgata Hotel Casino & Spa, Caesars Atlantic City, DraftKings, FanDuel, PokerStars</td><td>Casino, sports betting, iGaming</td></tr>
+<tr><td>USA</td><td>New Mexico</td><td>3</td><td>New Mexico Gaming Control Board, Sandia Resort & Casino, New Mexico Lottery</td><td>Tribal casino, lottery</td></tr>
+<tr><td>USA</td><td>New York</td><td>5</td><td>New York State Gaming Commission, Resorts World Catskills, Empire City Casino, New York Lottery, FanDuel (sports betting)</td><td>Casino, sports betting, lottery</td></tr>
+<tr><td>USA</td><td>North Carolina</td><td>3</td><td>North Carolina State Lottery Commission, Harrah's Cherokee Casino Resort, North Carolina Education Lottery</td><td>Tribal casino, lottery</td></tr>
+<tr><td>USA</td><td>North Dakota</td><td>2</td><td>North Dakota Gaming Commission, North Dakota Lottery</td><td>Tribal casino, lottery</td></tr>
+<tr><td>USA</td><td>Ohio</td><td>4</td><td>Ohio Casino Control Commission, Jack Cleveland Casino, Hollywood Casino Toledo, Ohio Lottery</td><td>Casino, racino, lottery</td></tr>
+<tr><td>USA</td><td>Oklahoma</td><td>4</td><td>Oklahoma Indian Gaming Association, Choctaw Nation of Oklahoma, Chickasaw Nation, Oklahoma Lottery Commission</td><td>Tribal casino, lottery</td></tr>
+<tr><td>USA</td><td>Oregon</td><td>3</td><td>Oregon Lottery, Oregon Racing Commission, Wildhorse Resort & Casino</td><td>Lottery, tribal casino, racing</td></tr>
+<tr><td>USA</td><td>Pennsylvania</td><td>5</td><td>Pennsylvania Gaming Control Board, Penn Entertainment, Rivers Casino, Pennsylvania Lottery, FanDuel (sports betting)</td><td>Casino, sports betting, iGaming, lottery</td></tr>
+<tr><td>USA</td><td>Rhode Island</td><td>2</td><td>Rhode Island Department of Business Regulation, Twin River Casino Hotel</td><td>Casino, sports betting</td></tr>
+<tr><td>USA</td><td>South Carolina</td><td>1</td><td>South Carolina Education Lottery</td><td>Lottery</td></tr>
+<tr><td>USA</td><td>South Dakota</td><td>3</td><td>South Dakota Commission on Gaming, Deadwood Gaming Association, South Dakota Lottery</td><td>Casino, lottery</td></tr>
+<tr><td>USA</td><td>Tennessee</td><td>2</td><td>Tennessee Education Lottery Corporation, Tennessee Sports Wagering Advisory Council</td><td>Lottery, sports betting</td></tr>
+<tr><td>USA</td><td>Texas</td><td>3</td><td>Texas Lottery Commission, Kickapoo Traditional Tribe of Texas, Alabama-Coushatta Tribe of Texas</td><td>Lottery, tribal casino</td></tr>
+<tr><td>USA</td><td>Utah</td><td>0</td><td></td><td>No legal gambling</td></tr>
+<tr><td>USA</td><td>Vermont</td><td>1</td><td>Vermont Lottery</td><td>Lottery</td></tr>
+<tr><td>USA</td><td>Virginia</td><td>4</td><td>Virginia Lottery, Virginia Racing Commission, Caesars Entertainment, DraftKings (sports betting)</td><td>Lottery, casino, sports betting</td></tr>
+<tr><td>USA</td><td>Washington</td><td>4</td><td>Washington State Gambling Commission, Washington Lottery, Muckleshoot Casino, Tulalip Resort Casino</td><td>Tribal casino, lottery, sports betting</td></tr>
+<tr><td>USA</td><td>West Virginia</td><td>3</td><td>West Virginia Lottery, The Greenbrier, Hollywood Casino at Charles Town Races</td><td>Casino, racino, lottery, iGaming</td></tr>
+<tr><td>USA</td><td>Wisconsin</td><td>3</td><td>Wisconsin Gaming Division, Potawatomi Hotel & Casino, Wisconsin Lottery</td><td>Tribal casino, lottery</td></tr>
+<tr><td>USA</td><td>Wyoming</td><td>2</td><td>Wyoming Gaming Commission, Wyoming Lottery</td><td>Lottery, sports betting</td></tr>
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <script>
+        const ctx = document.getElementById('stateChart').getContext('2d');
+        new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ["New Jersey","California","Nevada","Florida","Michigan","Illinois","New York","Pennsylvania","Ohio","Indiana"],
+                datasets: [{
+                    label: 'Total Companies',
+                    data: [6,6,6,5,5,5,5,5,4,4],
+                    backgroundColor: 'rgba(54, 162, 235, 0.6)',
+                    borderColor: 'rgba(54, 162, 235, 1)',
+                    borderWidth: 1,
+                    borderRadius: 4
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: { beginAtZero: true, ticks: { stepSize: 5 } }
+                },
+                plugins: { legend: { display: false } }
+            }
+        });
+    </script>
+</body>
+</html>
