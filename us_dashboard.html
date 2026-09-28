@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>US Company Database Dashboard</title>
     <style>
+        .filter-group { display: inline-block; vertical-align: top; margin-right: 20px; background: #f4f4f4; padding: 10px; border-radius: 6px; max-height: 220px; overflow-y: auto; }
+        .filter-group h4 { margin: 0 0 8px 0; font-size: 14px; }
+        .filter-group label { display: block; font-size: 12px; margin: 3px 0; cursor: pointer; white-space: nowrap; }
+        .filter-group button { font-size: 11px; margin-left: 8px; padding: 2px 6px; cursor: pointer; }
+        #result-count { margin: 12px 0; font-size: 13px; color: #555; }
         body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; margin: 20px; background-color: #f9f9f9; color: #333; }
         h1 { color: #2c3e50; }
         .filters { display: flex; gap: 15px; margin-bottom: 20px; background: white; padding: 15px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); flex-wrap: wrap; }
@@ -30,7 +35,7 @@
         </select>
                     <div class="filter-group">
                 <h4>Geos <button onclick="clearFilter('geo')">Clear</button></h4>
-                <label><input type="checkbox" class="geo-filter" value="USA"> USA</label><label><input type="checkbox" class="geo-filter" value="USA (Online)"> USA (Online)</label>
+                <label><input type="checkbox" class="geo-filter" value="USA"> USA</label>
             </div>
                         <div class="filter-group">
                     <h4>Companies <button onclick="clearFilter('company')">Clear</button></h4>
@@ -191,16 +196,16 @@
                 <td>New Jersey</td>
             </tr>
 
-            <tr class="company-row" data-company="DraftKings at Resorts" data-niches="online sportsbook" data-geo="USA (Online)">
+            <tr class="company-row" data-company="DraftKings at Resorts" data-niches="online sportsbook" data-geo="USA">
                 <td><strong>DraftKings at Resorts</strong></td>
-                <td><span class="geo-tag">USA (Online)</span></td>
+                <td><span class="geo-tag">USA</span></td>
                 <td><span class="tag">online sportsbook</span></td>
                 <td>New Jersey</td>
             </tr>
 
-            <tr class="company-row" data-company="FanDuel Sportsbook" data-niches="online sportsbook" data-geo="USA (Online)">
+            <tr class="company-row" data-company="FanDuel Sportsbook" data-niches="online sportsbook" data-geo="USA">
                 <td><strong>FanDuel Sportsbook</strong></td>
-                <td><span class="geo-tag">USA (Online)</span></td>
+                <td><span class="geo-tag">USA</span></td>
                 <td><span class="tag">online sportsbook</span></td>
                 <td>New Jersey</td>
             </tr>
@@ -254,9 +259,9 @@
                 <td>Pennsylvania</td>
             </tr>
 
-            <tr class="company-row" data-company="DraftKings" data-niches="online sportsbook" data-geo="USA (Online)">
+            <tr class="company-row" data-company="DraftKings" data-niches="online sportsbook" data-geo="USA">
                 <td><strong>DraftKings</strong></td>
-                <td><span class="geo-tag">USA (Online)</span></td>
+                <td><span class="geo-tag">USA</span></td>
                 <td><span class="tag">online sportsbook</span></td>
                 <td>Pennsylvania</td>
             </tr>
@@ -338,9 +343,9 @@
                 <td>Michigan</td>
             </tr>
 
-            <tr class="company-row" data-company="BetMGM" data-niches="online sportsbook" data-geo="USA (Online)">
+            <tr class="company-row" data-company="BetMGM" data-niches="online sportsbook" data-geo="USA">
                 <td><strong>BetMGM</strong></td>
-                <td><span class="geo-tag">USA (Online)</span></td>
+                <td><span class="geo-tag">USA</span></td>
                 <td><span class="tag">online sportsbook</span></td>
                 <td>Michigan</td>
             </tr>
@@ -380,9 +385,9 @@
                 <td>Illinois</td>
             </tr>
 
-            <tr class="company-row" data-company="BetRivers" data-niches="online sportsbook" data-geo="USA (Online)">
+            <tr class="company-row" data-company="BetRivers" data-niches="online sportsbook" data-geo="USA">
                 <td><strong>BetRivers</strong></td>
-                <td><span class="geo-tag">USA (Online)</span></td>
+                <td><span class="geo-tag">USA</span></td>
                 <td><span class="tag">online sportsbook</span></td>
                 <td>Illinois</td>
             </tr>
@@ -422,9 +427,9 @@
                 <td>Louisiana</td>
             </tr>
 
-            <tr class="company-row" data-company="Caesars Sportsbook" data-niches="online sportsbook" data-geo="USA (Online)">
+            <tr class="company-row" data-company="Caesars Sportsbook" data-niches="online sportsbook" data-geo="USA">
                 <td><strong>Caesars Sportsbook</strong></td>
-                <td><span class="geo-tag">USA (Online)</span></td>
+                <td><span class="geo-tag">USA</span></td>
                 <td><span class="tag">online sportsbook</span></td>
                 <td>Louisiana</td>
             </tr>
@@ -492,9 +497,9 @@
                 <td>Colorado</td>
             </tr>
 
-            <tr class="company-row" data-company="DraftKings Sportsbook" data-niches="online sportsbook" data-geo="USA (Online)">
+            <tr class="company-row" data-company="DraftKings Sportsbook" data-niches="online sportsbook" data-geo="USA">
                 <td><strong>DraftKings Sportsbook</strong></td>
-                <td><span class="geo-tag">USA (Online)</span></td>
+                <td><span class="geo-tag">USA</span></td>
                 <td><span class="tag">online sportsbook</span></td>
                 <td>Colorado</td>
             </tr>
@@ -618,16 +623,16 @@
                 <td>Connecticut</td>
             </tr>
 
-            <tr class="company-row" data-company="DraftKings at Foxwoods" data-niches="online sportsbook" data-geo="USA (Online)">
+            <tr class="company-row" data-company="DraftKings at Foxwoods" data-niches="online sportsbook" data-geo="USA">
                 <td><strong>DraftKings at Foxwoods</strong></td>
-                <td><span class="geo-tag">USA (Online)</span></td>
+                <td><span class="geo-tag">USA</span></td>
                 <td><span class="tag">online sportsbook</span></td>
                 <td>Connecticut</td>
             </tr>
 
-            <tr class="company-row" data-company="FanDuel at Mohegan Sun" data-niches="online sportsbook" data-geo="USA (Online)">
+            <tr class="company-row" data-company="FanDuel at Mohegan Sun" data-niches="online sportsbook" data-geo="USA">
                 <td><strong>FanDuel at Mohegan Sun</strong></td>
-                <td><span class="geo-tag">USA (Online)</span></td>
+                <td><span class="geo-tag">USA</span></td>
                 <td><span class="tag">online sportsbook</span></td>
                 <td>Connecticut</td>
             </tr>
@@ -800,9 +805,9 @@
                 <td>Florida</td>
             </tr>
 
-            <tr class="company-row" data-company="Hard Rock Bet" data-niches="online sportsbook" data-geo="USA (Online)">
+            <tr class="company-row" data-company="Hard Rock Bet" data-niches="online sportsbook" data-geo="USA">
                 <td><strong>Hard Rock Bet</strong></td>
-                <td><span class="geo-tag">USA (Online)</span></td>
+                <td><span class="geo-tag">USA</span></td>
                 <td><span class="tag">online sportsbook</span></td>
                 <td>Florida</td>
             </tr>
@@ -933,9 +938,9 @@
                 <td>Rhode Island</td>
             </tr>
 
-            <tr class="company-row" data-company="Sportsbook Rhode Island" data-niches="online sportsbook" data-geo="USA (Online)">
+            <tr class="company-row" data-company="Sportsbook Rhode Island" data-niches="online sportsbook" data-geo="USA">
                 <td><strong>Sportsbook Rhode Island</strong></td>
-                <td><span class="geo-tag">USA (Online)</span></td>
+                <td><span class="geo-tag">USA</span></td>
                 <td><span class="tag">online sportsbook</span></td>
                 <td>Rhode Island</td>
             </tr>
