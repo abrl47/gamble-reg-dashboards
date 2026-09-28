@@ -5,10 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>US Company Database Dashboard</title>
     <style>
-        .filter-group { display: inline-block; vertical-align: top; margin-right: 20px; background: #f4f4f4; padding: 10px; border-radius: 6px; max-height: 220px; overflow-y: auto; }
-        .filter-group h4 { margin: 0 0 8px 0; font-size: 14px; }
-        .filter-group label { display: block; font-size: 12px; margin: 3px 0; cursor: pointer; white-space: nowrap; }
-        .filter-group button { font-size: 11px; margin-left: 8px; padding: 2px 6px; cursor: pointer; }
+        .filter-group { display: inline-block; vertical-align: top; margin-right: 16px; background: #f7f9fc; padding: 12px; border-radius: 8px; border: 1px solid #e6eaf0; max-height: 260px; overflow-y: auto; min-width: 160px; }
+        .filter-group h4 { margin: 0 0 10px 0; font-size: 13px; color: #2c3e50; text-transform: uppercase; letter-spacing: 0.5px; display: flex; justify-content: space-between; align-items: center; }
+        .filter-group h4 button { font-size: 11px; padding: 2px 8px; border-radius: 10px; border: 1px solid #cbd3dc; background: white; cursor: pointer; color: #555; }
+        .filter-group h4 button:hover { background: #2c3e50; color: white; border-color: #2c3e50; }
+        .filter-group label { display: inline-block; padding: 4px 10px; margin: 3px 3px 3px 0; border-radius: 14px; background: white; border: 1px solid #d5dae2; font-size: 12px; cursor: pointer; user-select: none; transition: all 0.15s; color: #333; }
+        .filter-group label:hover { border-color: #2c3e50; background: #eef3f8; }
+        .filter-group label:has(input:checked) { background: #2c3e50; color: white; border-color: #2c3e50; font-weight: 500; }
+        .filter-group input[type="checkbox"] { display: none; }
+        .filter-group {{ display: inline-block; vertical-align: top; margin-right: 20px; background: #f4f4f4; padding: 10px; border-radius: 6px; max-height: 220px; overflow-y: auto; }}
+        .filter-group h4 {{ margin: 0 0 8px 0; font-size: 14px; }}
+        .filter-group label {{ display: block; font-size: 12px; margin: 3px 0; cursor: pointer; white-space: nowrap; }}
+        .filter-group button {{ font-size: 11px; margin-left: 8px; padding: 2px 6px; cursor: pointer; }}
         #result-count { margin: 12px 0; font-size: 13px; color: #555; }
         body { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif; margin: 20px; background-color: #f9f9f9; color: #333; }
         h1 { color: #2c3e50; }
@@ -29,10 +37,10 @@
 
     <div class="filters">
         <input type="text" id="searchInput" placeholder="Search company..." onkeyup="filterTable()">
-        <select id="filterNiche" onchange="filterTable()">
-            <option value="">All Niches</option>
-            <option value="online sportsbook">online sportsbook</option><option value="retail bingo">retail bingo</option><option value="retail casino">retail casino</option><option value="retail poker room">retail poker room</option><option value="retail sportsbook">retail sportsbook</option>
-        </select>
+        <div class="filter-group">
+    <h4>Niches <button onclick="clearFilter('niche')">Clear</button></h4>
+    <label><input type="checkbox" class="niche-filter" value="online sportsbook"> online sportsbook</label><label><input type="checkbox" class="niche-filter" value="retail bingo"> retail bingo</label><label><input type="checkbox" class="niche-filter" value="retail casino"> retail casino</label><label><input type="checkbox" class="niche-filter" value="retail poker room"> retail poker room</label><label><input type="checkbox" class="niche-filter" value="retail sportsbook"> retail sportsbook</label>
+</div>
                     <div class="filter-group">
                 <h4>Geos <button onclick="clearFilter('geo')">Clear</button></h4>
                 <label><input type="checkbox" class="geo-filter" value="USA"> USA</label>
