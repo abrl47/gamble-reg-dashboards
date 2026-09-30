@@ -11,38 +11,90 @@
          margin: 20px; background: #f9f9f9; color: #333; }
   h1 { color: var(--ink); margin-bottom: 4px; }
   .subtitle { color: #666; margin-top: 0; }
-  .filters { display: flex; gap: 15px; margin-bottom: 20px; background: white;
-             padding: 15px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-             flex-wrap: wrap; align-items: flex-start; }
-  #searchInput { padding: 8px 12px; border: 1px solid #ccc; border-radius: 4px;
-                 font-size: 14px; min-width: 220px; }
-  .filter-group { display: inline-block; vertical-align: top; margin-right: 16px;
-                  background: var(--bg); padding: 12px; border-radius: 8px;
-                  border: 1px solid var(--line); max-height: 260px;
-                  overflow-y: auto; min-width: 160px; }
-  .filter-group h4 { margin: 0 0 10px 0; font-size: 13px; color: var(--ink);
-                     text-transform: uppercase; letter-spacing: 0.5px;
-                     display: flex; justify-content: space-between;
-                     align-items: center; gap: 8px; }
-  .filter-group h4 button { font-size: 11px; padding: 2px 8px; border-radius: 10px;
-                            border: 1px solid #cbd3dc; background: white;
-                            cursor: pointer; color: #555; }
-  .filter-group h4 button:hover { background: var(--ink); color: white;
-                                  border-color: var(--ink); }
-  .filter-group label { display: inline-block; padding: 4px 10px; margin: 3px 3px 3px 0;
-                        border-radius: 14px; background: white; border: 1px solid var(--pill);
-                        font-size: 12px; cursor: pointer; user-select: none;
-                        transition: all 0.15s; color: #333; }
-  .filter-group label:hover { border-color: var(--ink); background: #eef3f8; }
-  .filter-group label:has(input:checked) { background: var(--ink); color: white;
-                                           border-color: var(--ink); font-weight: 500; }
-  .filter-group input[type="checkbox"] { display: none; }
-  #result-count { margin: 12px 0; font-size: 13px; color: #555; font-weight: bold; }
-  #clearAllBtn { margin-bottom: 15px; padding: 6px 12px; border: 1px solid #cbd3dc;
-                 background: white; border-radius: 6px; cursor: pointer; font-size: 13px; }
+
+  .filter-bar {
+    display: flex; gap: 10px; flex-wrap: wrap; align-items: center;
+    background: white; padding: 14px 16px; border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.08);
+    margin-bottom: 16px; position: relative; z-index: 20;
+  }
+  #searchInput {
+    flex: 1 1 240px; padding: 8px 12px; border: 1px solid #ccc;
+    border-radius: 6px; font-size: 14px; min-width: 200px;
+  }
+  #searchInput:focus { outline: none; border-color: var(--ink);
+                       box-shadow: 0 0 0 2px rgba(44,62,80,0.12); }
+
+  .dropdown { position: relative; }
+  .dropdown-trigger {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 8px 12px; min-width: 150px; max-width: 280px;
+    border: 1px solid #cbd3dc; background: white; border-radius: 6px;
+    cursor: pointer; font-size: 13px; color: #333;
+    text-align: left; user-select: none; font-family: inherit;
+  }
+  .dropdown-trigger:hover { border-color: var(--ink); }
+  .dropdown-trigger:focus { outline: none; box-shadow: 0 0 0 2px rgba(44,62,80,0.15); }
+  .dropdown-trigger.open { border-color: var(--ink);
+                           box-shadow: 0 0 0 2px rgba(44,62,80,0.15); }
+  .dropdown-trigger.has-selection { border-color: var(--ink); background: #f0f4f9; }
+  .dropdown-trigger .label { font-weight: 600; color: var(--ink); flex: 0 0 auto; }
+  .dropdown-trigger .value {
+    flex: 1 1 auto; overflow: hidden; text-overflow: ellipsis;
+    white-space: nowrap; color: #999; min-width: 0;
+  }
+  .dropdown-trigger.has-selection .value { color: #333; }
+  .dropdown-trigger .caret { font-size: 10px; color: #888; flex: 0 0 auto;
+                             transition: transform 0.15s; }
+  .dropdown-trigger.open .caret { transform: rotate(180deg); }
+
+  .dropdown-panel {
+    display: none; position: absolute; top: calc(100% + 6px); left: 0;
+    z-index: 100; min-width: 250px; max-width: 340px;
+    background: white; border: 1px solid #d0d7e0; border-radius: 8px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.14); padding: 8px;
+  }
+  .dropdown-panel.open { display: block; }
+  .dropdown-panel .panel-header {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 4px 6px 8px 6px; border-bottom: 1px solid #eee;
+    margin-bottom: 6px; font-size: 12px; color: #666;
+    text-transform: uppercase; letter-spacing: 0.5px; font-weight: 600;
+  }
+  .dropdown-panel .panel-header button {
+    font-size: 11px; padding: 2px 8px; border-radius: 10px;
+    border: 1px solid #cbd3dc; background: white; cursor: pointer;
+    color: #555; text-transform: none; letter-spacing: 0; font-weight: 500;
+  }
+  .dropdown-panel .panel-header button:hover {
+    background: var(--ink); color: white; border-color: var(--ink);
+  }
+  .dropdown-options { max-height: 240px; overflow-y: auto; padding: 2px; }
+  .dropdown-options label {
+    display: flex; align-items: center; gap: 8px;
+    padding: 6px 8px; border-radius: 4px; font-size: 13px;
+    cursor: pointer; user-select: none; color: #333;
+  }
+  .dropdown-options label:hover { background: #f1f5fa; }
+  .dropdown-options input[type="checkbox"] {
+    display: inline-block; margin: 0; cursor: pointer;
+    accent-color: var(--ink); flex: 0 0 auto;
+  }
+
+  #result-count { margin: 12px 0 8px 0; font-size: 13px; color: #555; font-weight: bold; }
+  #activeFiltersBar {
+    background: #eef4fb; border: 1px solid #d6e3f2; border-radius: 6px;
+    padding: 10px 14px; margin-bottom: 12px;
+  }
+  #clearAllBtn {
+    margin-bottom: 15px; padding: 6px 14px; border: 1px solid #cbd3dc;
+    background: white; border-radius: 6px; cursor: pointer; font-size: 13px;
+  }
   #clearAllBtn:hover { background: var(--ink); color: white; border-color: var(--ink); }
+
   table { width: 100%; border-collapse: collapse; background: white;
-          box-shadow: 0 2px 4px rgba(0,0,0,0.1); border-radius: 8px; overflow: hidden; }
+          box-shadow: 0 2px 4px rgba(0,0,0,0.1); border-radius: 8px;
+          overflow: hidden; }
   th, td { padding: 12px 15px; text-align: left; border-bottom: 1px solid #eee;
            vertical-align: top; }
   th { background-color: var(--ink); color: white; font-weight: 600; }
@@ -60,239 +112,273 @@
   <h1>US Company Database</h1>
   <p class="subtitle">Filter, search, and explore companies by niche, geography, company, and state.</p>
 
-  <div class="filters">
+  <div class="filter-bar">
     <input type="text" id="searchInput" placeholder="Search company...">
-    <div class="filter-group">
-      <h4>Niches <button type="button" data-clear="niche">Clear</button></h4>
-      <label><input type="checkbox" class="niche-filter" value="Casino games developers"> Casino games developers</label>
-      <label><input type="checkbox" class="niche-filter" value="Horse racing / racino"> Horse racing / racino</label>
-      <label><input type="checkbox" class="niche-filter" value="Lottery operator"> Lottery operator</label>
-      <label><input type="checkbox" class="niche-filter" value="Online casino operator"> Online casino operator</label>
-      <label><input type="checkbox" class="niche-filter" value="Online sportsbook operator"> Online sportsbook operator</label>
-      <label><input type="checkbox" class="niche-filter" value="Retail casino operator"> Retail casino operator</label>
-      <label><input type="checkbox" class="niche-filter" value="Retail sportsbook operator"> Retail sportsbook operator</label>
-      <label><input type="checkbox" class="niche-filter" value="Sportsbook software provider"> Sportsbook software provider</label>
-      <label><input type="checkbox" class="niche-filter" value="iGaming platform provider"> iGaming platform provider</label>
+
+    <div class="dropdown" data-filter="niche">
+      <button type="button" class="dropdown-trigger" aria-haspopup="listbox" aria-expanded="false">
+        <span class="label">Niches</span>
+        <span class="value">All</span>
+        <span class="caret">&#9662;</span>
+      </button>
+      <div class="dropdown-panel">
+        <div class="panel-header"><span>Niches</span><button type="button" data-clear="niche">Clear</button></div>
+        <div class="dropdown-options"><label><input type="checkbox" class="niche-filter" value="Casino games developers"><span>Casino games developers</span></label>
+        <label><input type="checkbox" class="niche-filter" value="Horse racing / racino"><span>Horse racing / racino</span></label>
+        <label><input type="checkbox" class="niche-filter" value="Lottery operator"><span>Lottery operator</span></label>
+        <label><input type="checkbox" class="niche-filter" value="Online casino operator"><span>Online casino operator</span></label>
+        <label><input type="checkbox" class="niche-filter" value="Online sportsbook operator"><span>Online sportsbook operator</span></label>
+        <label><input type="checkbox" class="niche-filter" value="Retail casino operator"><span>Retail casino operator</span></label>
+        <label><input type="checkbox" class="niche-filter" value="Retail sportsbook operator"><span>Retail sportsbook operator</span></label>
+        <label><input type="checkbox" class="niche-filter" value="Sportsbook software provider"><span>Sportsbook software provider</span></label>
+        <label><input type="checkbox" class="niche-filter" value="iGaming platform provider"><span>iGaming platform provider</span></label></div>
+      </div>
     </div>
-    <div class="filter-group">
-      <h4>Geos <button type="button" data-clear="geo">Clear</button></h4>
-      <label><input type="checkbox" class="geo-filter" value="USA"> USA</label>
+
+    <div class="dropdown" data-filter="geo">
+      <button type="button" class="dropdown-trigger" aria-haspopup="listbox" aria-expanded="false">
+        <span class="label">Geos</span>
+        <span class="value">All</span>
+        <span class="caret">&#9662;</span>
+      </button>
+      <div class="dropdown-panel">
+        <div class="panel-header"><span>Geos</span><button type="button" data-clear="geo">Clear</button></div>
+        <div class="dropdown-options"><label><input type="checkbox" class="geo-filter" value="USA"><span>USA</span></label></div>
+      </div>
     </div>
-    <div class="filter-group">
-      <h4>Companies <button type="button" data-clear="company">Clear</button></h4>
-      <label><input type="checkbox" class="company-filter" value="4 Bears Casino &amp; Lodge"> 4 Bears Casino &amp; Lodge</label>
-      <label><input type="checkbox" class="company-filter" value="Alaska Native-owned bingo halls"> Alaska Native-owned bingo halls</label>
-      <label><input type="checkbox" class="company-filter" value="Ameristar Casino East Chicago"> Ameristar Casino East Chicago</label>
-      <label><input type="checkbox" class="company-filter" value="Ameristar Casino Hotel Council Bluffs"> Ameristar Casino Hotel Council Bluffs</label>
-      <label><input type="checkbox" class="company-filter" value="Ameristar Casino Resort Spa Black Hawk"> Ameristar Casino Resort Spa Black Hawk</label>
-      <label><input type="checkbox" class="company-filter" value="Ameristar Casino Resort Spa St. Charles"> Ameristar Casino Resort Spa St. Charles</label>
-      <label><input type="checkbox" class="company-filter" value="Batavia Downs Gaming &amp; Hotel"> Batavia Downs Gaming &amp; Hotel</label>
-      <label><input type="checkbox" class="company-filter" value="Bay 101 Casino"> Bay 101 Casino</label>
-      <label><input type="checkbox" class="company-filter" value="Beau Rivage Resort &amp; Casino"> Beau Rivage Resort &amp; Casino</label>
-      <label><input type="checkbox" class="company-filter" value="BetMGM"> BetMGM</label>
-      <label><input type="checkbox" class="company-filter" value="BetRivers"> BetRivers</label>
-      <label><input type="checkbox" class="company-filter" value="Bicycle Casino"> Bicycle Casino</label>
-      <label><input type="checkbox" class="company-filter" value="Blue Chip Casino Hotel Spa"> Blue Chip Casino Hotel Spa</label>
-      <label><input type="checkbox" class="company-filter" value="Boomtown Casino &amp; Hotel"> Boomtown Casino &amp; Hotel</label>
-      <label><input type="checkbox" class="company-filter" value="Boot Hill Casino &amp; Resort"> Boot Hill Casino &amp; Resort</label>
-      <label><input type="checkbox" class="company-filter" value="Borgata Hotel Casino &amp; Spa"> Borgata Hotel Casino &amp; Spa</label>
-      <label><input type="checkbox" class="company-filter" value="Boyd Gaming"> Boyd Gaming</label>
-      <label><input type="checkbox" class="company-filter" value="Buffalo Thunder Resort &amp; Casino"> Buffalo Thunder Resort &amp; Casino</label>
-      <label><input type="checkbox" class="company-filter" value="Cadillac Jack&#x27;s Gaming Resort"> Cadillac Jack&#x27;s Gaming Resort</label>
-      <label><input type="checkbox" class="company-filter" value="Caesars Atlantic City"> Caesars Atlantic City</label>
-      <label><input type="checkbox" class="company-filter" value="Caesars Entertainment"> Caesars Entertainment</label>
-      <label><input type="checkbox" class="company-filter" value="Caesars Sportsbook"> Caesars Sportsbook</label>
-      <label><input type="checkbox" class="company-filter" value="Chinook Winds Casino Resort"> Chinook Winds Casino Resort</label>
-      <label><input type="checkbox" class="company-filter" value="Choctaw Casino &amp; Resort Durant"> Choctaw Casino &amp; Resort Durant</label>
-      <label><input type="checkbox" class="company-filter" value="Circa Resort &amp; Casino"> Circa Resort &amp; Casino</label>
-      <label><input type="checkbox" class="company-filter" value="Coeur d&#x27;Alene Casino Resort Hotel"> Coeur d&#x27;Alene Casino Resort Hotel</label>
-      <label><input type="checkbox" class="company-filter" value="Commerce Casino"> Commerce Casino</label>
-      <label><input type="checkbox" class="company-filter" value="Deadwood Mountain Grand"> Deadwood Mountain Grand</label>
-      <label><input type="checkbox" class="company-filter" value="del Lago Resort &amp; Casino"> del Lago Resort &amp; Casino</label>
-      <label><input type="checkbox" class="company-filter" value="Delaware Lottery Sports Betting"> Delaware Lottery Sports Betting</label>
-      <label><input type="checkbox" class="company-filter" value="Delaware Park Casino &amp; Racing"> Delaware Park Casino &amp; Racing</label>
-      <label><input type="checkbox" class="company-filter" value="Desert Diamond Casino"> Desert Diamond Casino</label>
-      <label><input type="checkbox" class="company-filter" value="Diamond Jo Casino"> Diamond Jo Casino</label>
-      <label><input type="checkbox" class="company-filter" value="Dover Downs Hotel &amp; Casino"> Dover Downs Hotel &amp; Casino</label>
-      <label><input type="checkbox" class="company-filter" value="DraftKings"> DraftKings</label>
-      <label><input type="checkbox" class="company-filter" value="DraftKings at Casino Queen"> DraftKings at Casino Queen</label>
-      <label><input type="checkbox" class="company-filter" value="DraftKings at Foxwoods"> DraftKings at Foxwoods</label>
-      <label><input type="checkbox" class="company-filter" value="DraftKings at Resorts"> DraftKings at Resorts</label>
-      <label><input type="checkbox" class="company-filter" value="DraftKings Sportsbook"> DraftKings Sportsbook</label>
-      <label><input type="checkbox" class="company-filter" value="Emerald Queen Casino"> Emerald Queen Casino</label>
-      <label><input type="checkbox" class="company-filter" value="Encore Boston Harbor"> Encore Boston Harbor</label>
-      <label><input type="checkbox" class="company-filter" value="FanDuel at Mohegan Sun"> FanDuel at Mohegan Sun</label>
-      <label><input type="checkbox" class="company-filter" value="FanDuel Sportsbook"> FanDuel Sportsbook</label>
-      <label><input type="checkbox" class="company-filter" value="Finger Lakes Gaming &amp; Racetrack"> Finger Lakes Gaming &amp; Racetrack</label>
-      <label><input type="checkbox" class="company-filter" value="FireKeepers Casino Hotel"> FireKeepers Casino Hotel</label>
-      <label><input type="checkbox" class="company-filter" value="Fontainebleau Miami Beach"> Fontainebleau Miami Beach</label>
-      <label><input type="checkbox" class="company-filter" value="Fort Hall Casino"> Fort Hall Casino</label>
-      <label><input type="checkbox" class="company-filter" value="Foxwoods Resort Casino"> Foxwoods Resort Casino</label>
-      <label><input type="checkbox" class="company-filter" value="Gold Strike Casino Resort"> Gold Strike Casino Resort</label>
-      <label><input type="checkbox" class="company-filter" value="Golden Entertainment"> Golden Entertainment</label>
-      <label><input type="checkbox" class="company-filter" value="Golden Gates Casino"> Golden Gates Casino</label>
-      <label><input type="checkbox" class="company-filter" value="Golden Nugget Atlantic City"> Golden Nugget Atlantic City</label>
-      <label><input type="checkbox" class="company-filter" value="Golden Nugget Lake Charles"> Golden Nugget Lake Charles</label>
-      <label><input type="checkbox" class="company-filter" value="Grand Casino Mille Lacs"> Grand Casino Mille Lacs</label>
-      <label><input type="checkbox" class="company-filter" value="Grand Victoria Casino"> Grand Victoria Casino</label>
-      <label><input type="checkbox" class="company-filter" value="Gun Lake Casino"> Gun Lake Casino</label>
-      <label><input type="checkbox" class="company-filter" value="Hard Rock Bet"> Hard Rock Bet</label>
-      <label><input type="checkbox" class="company-filter" value="Hard Rock Casino Northern Indiana"> Hard Rock Casino Northern Indiana</label>
-      <label><input type="checkbox" class="company-filter" value="Hard Rock Hotel &amp; Casino Atlantic City"> Hard Rock Hotel &amp; Casino Atlantic City</label>
-      <label><input type="checkbox" class="company-filter" value="Hard Rock Hotel &amp; Casino Biloxi"> Hard Rock Hotel &amp; Casino Biloxi</label>
-      <label><input type="checkbox" class="company-filter" value="Hard Rock Hotel &amp; Casino Bristol"> Hard Rock Hotel &amp; Casino Bristol</label>
-      <label><input type="checkbox" class="company-filter" value="Hard Rock Hotel &amp; Casino Tulsa"> Hard Rock Hotel &amp; Casino Tulsa</label>
-      <label><input type="checkbox" class="company-filter" value="Harrah&#x27;s Cherokee Casino Resort"> Harrah&#x27;s Cherokee Casino Resort</label>
-      <label><input type="checkbox" class="company-filter" value="Harrah&#x27;s Cherokee Valley River Casino &amp; Hotel"> Harrah&#x27;s Cherokee Valley River Casino &amp; Hotel</label>
-      <label><input type="checkbox" class="company-filter" value="Harrah&#x27;s Joliet"> Harrah&#x27;s Joliet</label>
-      <label><input type="checkbox" class="company-filter" value="Harrah&#x27;s New Orleans"> Harrah&#x27;s New Orleans</label>
-      <label><input type="checkbox" class="company-filter" value="Harrah&#x27;s North Kansas City"> Harrah&#x27;s North Kansas City</label>
-      <label><input type="checkbox" class="company-filter" value="Harrah&#x27;s Resort Atlantic City"> Harrah&#x27;s Resort Atlantic City</label>
-      <label><input type="checkbox" class="company-filter" value="Ho-Chunk Gaming Wisconsin Dells"> Ho-Chunk Gaming Wisconsin Dells</label>
-      <label><input type="checkbox" class="company-filter" value="Hollywood Casino at Charles Town Races"> Hollywood Casino at Charles Town Races</label>
-      <label><input type="checkbox" class="company-filter" value="Hollywood Casino at Greektown"> Hollywood Casino at Greektown</label>
-      <label><input type="checkbox" class="company-filter" value="Hollywood Casino at Kansas Speedway"> Hollywood Casino at Kansas Speedway</label>
-      <label><input type="checkbox" class="company-filter" value="Hollywood Casino at Penn National Race Course"> Hollywood Casino at Penn National Race Course</label>
-      <label><input type="checkbox" class="company-filter" value="Hollywood Casino Aurora"> Hollywood Casino Aurora</label>
-      <label><input type="checkbox" class="company-filter" value="Hollywood Casino Bangor"> Hollywood Casino Bangor</label>
-      <label><input type="checkbox" class="company-filter" value="Hollywood Casino Columbus"> Hollywood Casino Columbus</label>
-      <label><input type="checkbox" class="company-filter" value="Hollywood Casino St. Louis"> Hollywood Casino St. Louis</label>
-      <label><input type="checkbox" class="company-filter" value="Hollywood Casino Toledo"> Hollywood Casino Toledo</label>
-      <label><input type="checkbox" class="company-filter" value="Horseshoe Casino Baltimore"> Horseshoe Casino Baltimore</label>
-      <label><input type="checkbox" class="company-filter" value="Horseshoe Council Bluffs"> Horseshoe Council Bluffs</label>
-      <label><input type="checkbox" class="company-filter" value="Horseshoe Indianapolis"> Horseshoe Indianapolis</label>
-      <label><input type="checkbox" class="company-filter" value="IP Casino Resort Spa"> IP Casino Resort Spa</label>
-      <label><input type="checkbox" class="company-filter" value="Isle Casino Hotel Black Hawk"> Isle Casino Hotel Black Hawk</label>
-      <label><input type="checkbox" class="company-filter" value="Isleta Resort &amp; Casino"> Isleta Resort &amp; Casino</label>
-      <label><input type="checkbox" class="company-filter" value="Jack Cincinnati Casino"> Jack Cincinnati Casino</label>
-      <label><input type="checkbox" class="company-filter" value="Jack Cleveland Casino"> Jack Cleveland Casino</label>
-      <label><input type="checkbox" class="company-filter" value="Kansas Star Casino"> Kansas Star Casino</label>
-      <label><input type="checkbox" class="company-filter" value="Kickapoo Lucky Eagle Casino"> Kickapoo Lucky Eagle Casino</label>
-      <label><input type="checkbox" class="company-filter" value="L&#x27;Auberge Casino &amp; Hotel Baton Rouge"> L&#x27;Auberge Casino &amp; Hotel Baton Rouge</label>
-      <label><input type="checkbox" class="company-filter" value="Las Vegas Sands"> Las Vegas Sands</label>
-      <label><input type="checkbox" class="company-filter" value="Live! Casino &amp; Hotel Maryland"> Live! Casino &amp; Hotel Maryland</label>
-      <label><input type="checkbox" class="company-filter" value="Live! Casino Pittsburgh"> Live! Casino Pittsburgh</label>
-      <label><input type="checkbox" class="company-filter" value="Magic City Casino"> Magic City Casino</label>
-      <label><input type="checkbox" class="company-filter" value="Margaritaville Resort Casino"> Margaritaville Resort Casino</label>
-      <label><input type="checkbox" class="company-filter" value="MGM Grand Detroit"> MGM Grand Detroit</label>
-      <label><input type="checkbox" class="company-filter" value="MGM National Harbor"> MGM National Harbor</label>
-      <label><input type="checkbox" class="company-filter" value="MGM Resorts International"> MGM Resorts International</label>
-      <label><input type="checkbox" class="company-filter" value="MGM Springfield"> MGM Springfield</label>
-      <label><input type="checkbox" class="company-filter" value="Mohegan Pennsylvania"> Mohegan Pennsylvania</label>
-      <label><input type="checkbox" class="company-filter" value="Mohegan Sun"> Mohegan Sun</label>
-      <label><input type="checkbox" class="company-filter" value="Monarch Casino Resort Spa"> Monarch Casino Resort Spa</label>
-      <label><input type="checkbox" class="company-filter" value="Montana Lottery Sports Betting"> Montana Lottery Sports Betting</label>
-      <label><input type="checkbox" class="company-filter" value="Morongo Casino Resort &amp; Spa"> Morongo Casino Resort &amp; Spa</label>
-      <label><input type="checkbox" class="company-filter" value="MotorCity Casino Hotel"> MotorCity Casino Hotel</label>
-      <label><input type="checkbox" class="company-filter" value="Mount Airy Casino Resort"> Mount Airy Casino Resort</label>
-      <label><input type="checkbox" class="company-filter" value="Mountaineer Casino Racetrack &amp; Resort"> Mountaineer Casino Racetrack &amp; Resort</label>
-      <label><input type="checkbox" class="company-filter" value="Muckleshoot Casino"> Muckleshoot Casino</label>
-      <label><input type="checkbox" class="company-filter" value="Mystic Lake Casino Hotel"> Mystic Lake Casino Hotel</label>
-      <label><input type="checkbox" class="company-filter" value="Oaklawn Racing Casino Resort"> Oaklawn Racing Casino Resort</label>
-      <label><input type="checkbox" class="company-filter" value="Ocean Casino Resort"> Ocean Casino Resort</label>
-      <label><input type="checkbox" class="company-filter" value="Ocean Downs Casino"> Ocean Downs Casino</label>
-      <label><input type="checkbox" class="company-filter" value="Oneida Casino"> Oneida Casino</label>
-      <label><input type="checkbox" class="company-filter" value="Oxford Casino Hotel"> Oxford Casino Hotel</label>
-      <label><input type="checkbox" class="company-filter" value="Parx Casino"> Parx Casino</label>
-      <label><input type="checkbox" class="company-filter" value="Pearl River Resort"> Pearl River Resort</label>
-      <label><input type="checkbox" class="company-filter" value="Pecheanga Resort Casino"> Pecheanga Resort Casino</label>
-      <label><input type="checkbox" class="company-filter" value="Plainridge Park Casino"> Plainridge Park Casino</label>
-      <label><input type="checkbox" class="company-filter" value="Potawatomi Hotel &amp; Casino"> Potawatomi Hotel &amp; Casino</label>
-      <label><input type="checkbox" class="company-filter" value="Prairie Knights Casino &amp; Resort"> Prairie Knights Casino &amp; Resort</label>
-      <label><input type="checkbox" class="company-filter" value="Prairie Meadows Casino"> Prairie Meadows Casino</label>
-      <label><input type="checkbox" class="company-filter" value="Red Rock Resorts"> Red Rock Resorts</label>
-      <label><input type="checkbox" class="company-filter" value="Resorts Casino Hotel"> Resorts Casino Hotel</label>
-      <label><input type="checkbox" class="company-filter" value="Resorts World Catskills"> Resorts World Catskills</label>
-      <label><input type="checkbox" class="company-filter" value="River City Casino &amp; Hotel"> River City Casino &amp; Hotel</label>
-      <label><input type="checkbox" class="company-filter" value="Rivers Casino &amp; Resort Schenectady"> Rivers Casino &amp; Resort Schenectady</label>
-      <label><input type="checkbox" class="company-filter" value="Rivers Casino Des Plaines"> Rivers Casino Des Plaines</label>
-      <label><input type="checkbox" class="company-filter" value="Rivers Casino Philadelphia"> Rivers Casino Philadelphia</label>
-      <label><input type="checkbox" class="company-filter" value="Rivers Casino Portsmouth"> Rivers Casino Portsmouth</label>
-      <label><input type="checkbox" class="company-filter" value="Riverwind Casino"> Riverwind Casino</label>
-      <label><input type="checkbox" class="company-filter" value="Sandia Resort &amp; Casino"> Sandia Resort &amp; Casino</label>
-      <label><input type="checkbox" class="company-filter" value="Saracen Casino Resort"> Saracen Casino Resort</label>
-      <label><input type="checkbox" class="company-filter" value="Seminole Hard Rock Hotel &amp; Casino Hollywood"> Seminole Hard Rock Hotel &amp; Casino Hollywood</label>
-      <label><input type="checkbox" class="company-filter" value="Seminole Hard Rock Hotel &amp; Casino Tampa"> Seminole Hard Rock Hotel &amp; Casino Tampa</label>
-      <label><input type="checkbox" class="company-filter" value="Snoqualmie Casino"> Snoqualmie Casino</label>
-      <label><input type="checkbox" class="company-filter" value="South Point Hotel Casino &amp; Spa"> South Point Hotel Casino &amp; Spa</label>
-      <label><input type="checkbox" class="company-filter" value="Southland Casino Racing"> Southland Casino Racing</label>
-      <label><input type="checkbox" class="company-filter" value="Spirit Mountain Casino"> Spirit Mountain Casino</label>
-      <label><input type="checkbox" class="company-filter" value="Sportsbook Rhode Island"> Sportsbook Rhode Island</label>
-      <label><input type="checkbox" class="company-filter" value="Station Casinos"> Station Casinos</label>
-      <label><input type="checkbox" class="company-filter" value="Talking Stick Resort"> Talking Stick Resort</label>
-      <label><input type="checkbox" class="company-filter" value="Texas Card House"> Texas Card House</label>
-      <label><input type="checkbox" class="company-filter" value="The Greenbrier Casino Club"> The Greenbrier Casino Club</label>
-      <label><input type="checkbox" class="company-filter" value="Thunder Valley Casino Resort"> Thunder Valley Casino Resort</label>
-      <label><input type="checkbox" class="company-filter" value="Tin Lizzie Gaming Resort"> Tin Lizzie Gaming Resort</label>
-      <label><input type="checkbox" class="company-filter" value="Tioga Downs Casino Resort"> Tioga Downs Casino Resort</label>
-      <label><input type="checkbox" class="company-filter" value="Tiverton Casino Hotel"> Tiverton Casino Hotel</label>
-      <label><input type="checkbox" class="company-filter" value="Treasure Island Resort &amp; Casino"> Treasure Island Resort &amp; Casino</label>
-      <label><input type="checkbox" class="company-filter" value="Tropicana Atlantic City"> Tropicana Atlantic City</label>
-      <label><input type="checkbox" class="company-filter" value="Tulalip Resort Casino"> Tulalip Resort Casino</label>
-      <label><input type="checkbox" class="company-filter" value="Twin River Casino"> Twin River Casino</label>
-      <label><input type="checkbox" class="company-filter" value="WarHorse Casino Lincoln"> WarHorse Casino Lincoln</label>
-      <label><input type="checkbox" class="company-filter" value="WarHorse Casino Omaha"> WarHorse Casino Omaha</label>
-      <label><input type="checkbox" class="company-filter" value="Westgate Las Vegas SuperBook"> Westgate Las Vegas SuperBook</label>
-      <label><input type="checkbox" class="company-filter" value="Wild Horse Pass Hotel &amp; Casino"> Wild Horse Pass Hotel &amp; Casino</label>
-      <label><input type="checkbox" class="company-filter" value="William Hill Nevada"> William Hill Nevada</label>
-      <label><input type="checkbox" class="company-filter" value="Wind Creek Bethlehem"> Wind Creek Bethlehem</label>
-      <label><input type="checkbox" class="company-filter" value="WinStar World Casino and Resort"> WinStar World Casino and Resort</label>
-      <label><input type="checkbox" class="company-filter" value="Wynn Resorts"> Wynn Resorts</label>
+
+    <div class="dropdown" data-filter="company">
+      <button type="button" class="dropdown-trigger" aria-haspopup="listbox" aria-expanded="false">
+        <span class="label">Companies</span>
+        <span class="value">All</span>
+        <span class="caret">&#9662;</span>
+      </button>
+      <div class="dropdown-panel">
+        <div class="panel-header"><span>Companies</span><button type="button" data-clear="company">Clear</button></div>
+        <div class="dropdown-options"><label><input type="checkbox" class="company-filter" value="4 Bears Casino &amp; Lodge"><span>4 Bears Casino &amp; Lodge</span></label>
+        <label><input type="checkbox" class="company-filter" value="Alaska Native-owned bingo halls"><span>Alaska Native-owned bingo halls</span></label>
+        <label><input type="checkbox" class="company-filter" value="Ameristar Casino East Chicago"><span>Ameristar Casino East Chicago</span></label>
+        <label><input type="checkbox" class="company-filter" value="Ameristar Casino Hotel Council Bluffs"><span>Ameristar Casino Hotel Council Bluffs</span></label>
+        <label><input type="checkbox" class="company-filter" value="Ameristar Casino Resort Spa Black Hawk"><span>Ameristar Casino Resort Spa Black Hawk</span></label>
+        <label><input type="checkbox" class="company-filter" value="Ameristar Casino Resort Spa St. Charles"><span>Ameristar Casino Resort Spa St. Charles</span></label>
+        <label><input type="checkbox" class="company-filter" value="Batavia Downs Gaming &amp; Hotel"><span>Batavia Downs Gaming &amp; Hotel</span></label>
+        <label><input type="checkbox" class="company-filter" value="Bay 101 Casino"><span>Bay 101 Casino</span></label>
+        <label><input type="checkbox" class="company-filter" value="Beau Rivage Resort &amp; Casino"><span>Beau Rivage Resort &amp; Casino</span></label>
+        <label><input type="checkbox" class="company-filter" value="BetMGM"><span>BetMGM</span></label>
+        <label><input type="checkbox" class="company-filter" value="BetRivers"><span>BetRivers</span></label>
+        <label><input type="checkbox" class="company-filter" value="Bicycle Casino"><span>Bicycle Casino</span></label>
+        <label><input type="checkbox" class="company-filter" value="Blue Chip Casino Hotel Spa"><span>Blue Chip Casino Hotel Spa</span></label>
+        <label><input type="checkbox" class="company-filter" value="Boomtown Casino &amp; Hotel"><span>Boomtown Casino &amp; Hotel</span></label>
+        <label><input type="checkbox" class="company-filter" value="Boot Hill Casino &amp; Resort"><span>Boot Hill Casino &amp; Resort</span></label>
+        <label><input type="checkbox" class="company-filter" value="Borgata Hotel Casino &amp; Spa"><span>Borgata Hotel Casino &amp; Spa</span></label>
+        <label><input type="checkbox" class="company-filter" value="Boyd Gaming"><span>Boyd Gaming</span></label>
+        <label><input type="checkbox" class="company-filter" value="Buffalo Thunder Resort &amp; Casino"><span>Buffalo Thunder Resort &amp; Casino</span></label>
+        <label><input type="checkbox" class="company-filter" value="Cadillac Jack&#x27;s Gaming Resort"><span>Cadillac Jack&#x27;s Gaming Resort</span></label>
+        <label><input type="checkbox" class="company-filter" value="Caesars Atlantic City"><span>Caesars Atlantic City</span></label>
+        <label><input type="checkbox" class="company-filter" value="Caesars Entertainment"><span>Caesars Entertainment</span></label>
+        <label><input type="checkbox" class="company-filter" value="Caesars Sportsbook"><span>Caesars Sportsbook</span></label>
+        <label><input type="checkbox" class="company-filter" value="Chinook Winds Casino Resort"><span>Chinook Winds Casino Resort</span></label>
+        <label><input type="checkbox" class="company-filter" value="Choctaw Casino &amp; Resort Durant"><span>Choctaw Casino &amp; Resort Durant</span></label>
+        <label><input type="checkbox" class="company-filter" value="Circa Resort &amp; Casino"><span>Circa Resort &amp; Casino</span></label>
+        <label><input type="checkbox" class="company-filter" value="Coeur d&#x27;Alene Casino Resort Hotel"><span>Coeur d&#x27;Alene Casino Resort Hotel</span></label>
+        <label><input type="checkbox" class="company-filter" value="Commerce Casino"><span>Commerce Casino</span></label>
+        <label><input type="checkbox" class="company-filter" value="Deadwood Mountain Grand"><span>Deadwood Mountain Grand</span></label>
+        <label><input type="checkbox" class="company-filter" value="del Lago Resort &amp; Casino"><span>del Lago Resort &amp; Casino</span></label>
+        <label><input type="checkbox" class="company-filter" value="Delaware Lottery Sports Betting"><span>Delaware Lottery Sports Betting</span></label>
+        <label><input type="checkbox" class="company-filter" value="Delaware Park Casino &amp; Racing"><span>Delaware Park Casino &amp; Racing</span></label>
+        <label><input type="checkbox" class="company-filter" value="Desert Diamond Casino"><span>Desert Diamond Casino</span></label>
+        <label><input type="checkbox" class="company-filter" value="Diamond Jo Casino"><span>Diamond Jo Casino</span></label>
+        <label><input type="checkbox" class="company-filter" value="Dover Downs Hotel &amp; Casino"><span>Dover Downs Hotel &amp; Casino</span></label>
+        <label><input type="checkbox" class="company-filter" value="DraftKings"><span>DraftKings</span></label>
+        <label><input type="checkbox" class="company-filter" value="DraftKings at Casino Queen"><span>DraftKings at Casino Queen</span></label>
+        <label><input type="checkbox" class="company-filter" value="DraftKings at Foxwoods"><span>DraftKings at Foxwoods</span></label>
+        <label><input type="checkbox" class="company-filter" value="DraftKings at Resorts"><span>DraftKings at Resorts</span></label>
+        <label><input type="checkbox" class="company-filter" value="DraftKings Sportsbook"><span>DraftKings Sportsbook</span></label>
+        <label><input type="checkbox" class="company-filter" value="Emerald Queen Casino"><span>Emerald Queen Casino</span></label>
+        <label><input type="checkbox" class="company-filter" value="Encore Boston Harbor"><span>Encore Boston Harbor</span></label>
+        <label><input type="checkbox" class="company-filter" value="FanDuel at Mohegan Sun"><span>FanDuel at Mohegan Sun</span></label>
+        <label><input type="checkbox" class="company-filter" value="FanDuel Sportsbook"><span>FanDuel Sportsbook</span></label>
+        <label><input type="checkbox" class="company-filter" value="Finger Lakes Gaming &amp; Racetrack"><span>Finger Lakes Gaming &amp; Racetrack</span></label>
+        <label><input type="checkbox" class="company-filter" value="FireKeepers Casino Hotel"><span>FireKeepers Casino Hotel</span></label>
+        <label><input type="checkbox" class="company-filter" value="Fontainebleau Miami Beach"><span>Fontainebleau Miami Beach</span></label>
+        <label><input type="checkbox" class="company-filter" value="Fort Hall Casino"><span>Fort Hall Casino</span></label>
+        <label><input type="checkbox" class="company-filter" value="Foxwoods Resort Casino"><span>Foxwoods Resort Casino</span></label>
+        <label><input type="checkbox" class="company-filter" value="Gold Strike Casino Resort"><span>Gold Strike Casino Resort</span></label>
+        <label><input type="checkbox" class="company-filter" value="Golden Entertainment"><span>Golden Entertainment</span></label>
+        <label><input type="checkbox" class="company-filter" value="Golden Gates Casino"><span>Golden Gates Casino</span></label>
+        <label><input type="checkbox" class="company-filter" value="Golden Nugget Atlantic City"><span>Golden Nugget Atlantic City</span></label>
+        <label><input type="checkbox" class="company-filter" value="Golden Nugget Lake Charles"><span>Golden Nugget Lake Charles</span></label>
+        <label><input type="checkbox" class="company-filter" value="Grand Casino Mille Lacs"><span>Grand Casino Mille Lacs</span></label>
+        <label><input type="checkbox" class="company-filter" value="Grand Victoria Casino"><span>Grand Victoria Casino</span></label>
+        <label><input type="checkbox" class="company-filter" value="Gun Lake Casino"><span>Gun Lake Casino</span></label>
+        <label><input type="checkbox" class="company-filter" value="Hard Rock Bet"><span>Hard Rock Bet</span></label>
+        <label><input type="checkbox" class="company-filter" value="Hard Rock Casino Northern Indiana"><span>Hard Rock Casino Northern Indiana</span></label>
+        <label><input type="checkbox" class="company-filter" value="Hard Rock Hotel &amp; Casino Atlantic City"><span>Hard Rock Hotel &amp; Casino Atlantic City</span></label>
+        <label><input type="checkbox" class="company-filter" value="Hard Rock Hotel &amp; Casino Biloxi"><span>Hard Rock Hotel &amp; Casino Biloxi</span></label>
+        <label><input type="checkbox" class="company-filter" value="Hard Rock Hotel &amp; Casino Bristol"><span>Hard Rock Hotel &amp; Casino Bristol</span></label>
+        <label><input type="checkbox" class="company-filter" value="Hard Rock Hotel &amp; Casino Tulsa"><span>Hard Rock Hotel &amp; Casino Tulsa</span></label>
+        <label><input type="checkbox" class="company-filter" value="Harrah&#x27;s Cherokee Casino Resort"><span>Harrah&#x27;s Cherokee Casino Resort</span></label>
+        <label><input type="checkbox" class="company-filter" value="Harrah&#x27;s Cherokee Valley River Casino &amp; Hotel"><span>Harrah&#x27;s Cherokee Valley River Casino &amp; Hotel</span></label>
+        <label><input type="checkbox" class="company-filter" value="Harrah&#x27;s Joliet"><span>Harrah&#x27;s Joliet</span></label>
+        <label><input type="checkbox" class="company-filter" value="Harrah&#x27;s New Orleans"><span>Harrah&#x27;s New Orleans</span></label>
+        <label><input type="checkbox" class="company-filter" value="Harrah&#x27;s North Kansas City"><span>Harrah&#x27;s North Kansas City</span></label>
+        <label><input type="checkbox" class="company-filter" value="Harrah&#x27;s Resort Atlantic City"><span>Harrah&#x27;s Resort Atlantic City</span></label>
+        <label><input type="checkbox" class="company-filter" value="Ho-Chunk Gaming Wisconsin Dells"><span>Ho-Chunk Gaming Wisconsin Dells</span></label>
+        <label><input type="checkbox" class="company-filter" value="Hollywood Casino at Charles Town Races"><span>Hollywood Casino at Charles Town Races</span></label>
+        <label><input type="checkbox" class="company-filter" value="Hollywood Casino at Greektown"><span>Hollywood Casino at Greektown</span></label>
+        <label><input type="checkbox" class="company-filter" value="Hollywood Casino at Kansas Speedway"><span>Hollywood Casino at Kansas Speedway</span></label>
+        <label><input type="checkbox" class="company-filter" value="Hollywood Casino at Penn National Race Course"><span>Hollywood Casino at Penn National Race Course</span></label>
+        <label><input type="checkbox" class="company-filter" value="Hollywood Casino Aurora"><span>Hollywood Casino Aurora</span></label>
+        <label><input type="checkbox" class="company-filter" value="Hollywood Casino Bangor"><span>Hollywood Casino Bangor</span></label>
+        <label><input type="checkbox" class="company-filter" value="Hollywood Casino Columbus"><span>Hollywood Casino Columbus</span></label>
+        <label><input type="checkbox" class="company-filter" value="Hollywood Casino St. Louis"><span>Hollywood Casino St. Louis</span></label>
+        <label><input type="checkbox" class="company-filter" value="Hollywood Casino Toledo"><span>Hollywood Casino Toledo</span></label>
+        <label><input type="checkbox" class="company-filter" value="Horseshoe Casino Baltimore"><span>Horseshoe Casino Baltimore</span></label>
+        <label><input type="checkbox" class="company-filter" value="Horseshoe Council Bluffs"><span>Horseshoe Council Bluffs</span></label>
+        <label><input type="checkbox" class="company-filter" value="Horseshoe Indianapolis"><span>Horseshoe Indianapolis</span></label>
+        <label><input type="checkbox" class="company-filter" value="IP Casino Resort Spa"><span>IP Casino Resort Spa</span></label>
+        <label><input type="checkbox" class="company-filter" value="Isle Casino Hotel Black Hawk"><span>Isle Casino Hotel Black Hawk</span></label>
+        <label><input type="checkbox" class="company-filter" value="Isleta Resort &amp; Casino"><span>Isleta Resort &amp; Casino</span></label>
+        <label><input type="checkbox" class="company-filter" value="Jack Cincinnati Casino"><span>Jack Cincinnati Casino</span></label>
+        <label><input type="checkbox" class="company-filter" value="Jack Cleveland Casino"><span>Jack Cleveland Casino</span></label>
+        <label><input type="checkbox" class="company-filter" value="Kansas Star Casino"><span>Kansas Star Casino</span></label>
+        <label><input type="checkbox" class="company-filter" value="Kickapoo Lucky Eagle Casino"><span>Kickapoo Lucky Eagle Casino</span></label>
+        <label><input type="checkbox" class="company-filter" value="L&#x27;Auberge Casino &amp; Hotel Baton Rouge"><span>L&#x27;Auberge Casino &amp; Hotel Baton Rouge</span></label>
+        <label><input type="checkbox" class="company-filter" value="Las Vegas Sands"><span>Las Vegas Sands</span></label>
+        <label><input type="checkbox" class="company-filter" value="Live! Casino &amp; Hotel Maryland"><span>Live! Casino &amp; Hotel Maryland</span></label>
+        <label><input type="checkbox" class="company-filter" value="Live! Casino Pittsburgh"><span>Live! Casino Pittsburgh</span></label>
+        <label><input type="checkbox" class="company-filter" value="Magic City Casino"><span>Magic City Casino</span></label>
+        <label><input type="checkbox" class="company-filter" value="Margaritaville Resort Casino"><span>Margaritaville Resort Casino</span></label>
+        <label><input type="checkbox" class="company-filter" value="MGM Grand Detroit"><span>MGM Grand Detroit</span></label>
+        <label><input type="checkbox" class="company-filter" value="MGM National Harbor"><span>MGM National Harbor</span></label>
+        <label><input type="checkbox" class="company-filter" value="MGM Resorts International"><span>MGM Resorts International</span></label>
+        <label><input type="checkbox" class="company-filter" value="MGM Springfield"><span>MGM Springfield</span></label>
+        <label><input type="checkbox" class="company-filter" value="Mohegan Pennsylvania"><span>Mohegan Pennsylvania</span></label>
+        <label><input type="checkbox" class="company-filter" value="Mohegan Sun"><span>Mohegan Sun</span></label>
+        <label><input type="checkbox" class="company-filter" value="Monarch Casino Resort Spa"><span>Monarch Casino Resort Spa</span></label>
+        <label><input type="checkbox" class="company-filter" value="Montana Lottery Sports Betting"><span>Montana Lottery Sports Betting</span></label>
+        <label><input type="checkbox" class="company-filter" value="Morongo Casino Resort &amp; Spa"><span>Morongo Casino Resort &amp; Spa</span></label>
+        <label><input type="checkbox" class="company-filter" value="MotorCity Casino Hotel"><span>MotorCity Casino Hotel</span></label>
+        <label><input type="checkbox" class="company-filter" value="Mount Airy Casino Resort"><span>Mount Airy Casino Resort</span></label>
+        <label><input type="checkbox" class="company-filter" value="Mountaineer Casino Racetrack &amp; Resort"><span>Mountaineer Casino Racetrack &amp; Resort</span></label>
+        <label><input type="checkbox" class="company-filter" value="Muckleshoot Casino"><span>Muckleshoot Casino</span></label>
+        <label><input type="checkbox" class="company-filter" value="Mystic Lake Casino Hotel"><span>Mystic Lake Casino Hotel</span></label>
+        <label><input type="checkbox" class="company-filter" value="Oaklawn Racing Casino Resort"><span>Oaklawn Racing Casino Resort</span></label>
+        <label><input type="checkbox" class="company-filter" value="Ocean Casino Resort"><span>Ocean Casino Resort</span></label>
+        <label><input type="checkbox" class="company-filter" value="Ocean Downs Casino"><span>Ocean Downs Casino</span></label>
+        <label><input type="checkbox" class="company-filter" value="Oneida Casino"><span>Oneida Casino</span></label>
+        <label><input type="checkbox" class="company-filter" value="Oxford Casino Hotel"><span>Oxford Casino Hotel</span></label>
+        <label><input type="checkbox" class="company-filter" value="Parx Casino"><span>Parx Casino</span></label>
+        <label><input type="checkbox" class="company-filter" value="Pearl River Resort"><span>Pearl River Resort</span></label>
+        <label><input type="checkbox" class="company-filter" value="Pecheanga Resort Casino"><span>Pecheanga Resort Casino</span></label>
+        <label><input type="checkbox" class="company-filter" value="Plainridge Park Casino"><span>Plainridge Park Casino</span></label>
+        <label><input type="checkbox" class="company-filter" value="Potawatomi Hotel &amp; Casino"><span>Potawatomi Hotel &amp; Casino</span></label>
+        <label><input type="checkbox" class="company-filter" value="Prairie Knights Casino &amp; Resort"><span>Prairie Knights Casino &amp; Resort</span></label>
+        <label><input type="checkbox" class="company-filter" value="Prairie Meadows Casino"><span>Prairie Meadows Casino</span></label>
+        <label><input type="checkbox" class="company-filter" value="Red Rock Resorts"><span>Red Rock Resorts</span></label>
+        <label><input type="checkbox" class="company-filter" value="Resorts Casino Hotel"><span>Resorts Casino Hotel</span></label>
+        <label><input type="checkbox" class="company-filter" value="Resorts World Catskills"><span>Resorts World Catskills</span></label>
+        <label><input type="checkbox" class="company-filter" value="River City Casino &amp; Hotel"><span>River City Casino &amp; Hotel</span></label>
+        <label><input type="checkbox" class="company-filter" value="Rivers Casino &amp; Resort Schenectady"><span>Rivers Casino &amp; Resort Schenectady</span></label>
+        <label><input type="checkbox" class="company-filter" value="Rivers Casino Des Plaines"><span>Rivers Casino Des Plaines</span></label>
+        <label><input type="checkbox" class="company-filter" value="Rivers Casino Philadelphia"><span>Rivers Casino Philadelphia</span></label>
+        <label><input type="checkbox" class="company-filter" value="Rivers Casino Portsmouth"><span>Rivers Casino Portsmouth</span></label>
+        <label><input type="checkbox" class="company-filter" value="Riverwind Casino"><span>Riverwind Casino</span></label>
+        <label><input type="checkbox" class="company-filter" value="Sandia Resort &amp; Casino"><span>Sandia Resort &amp; Casino</span></label>
+        <label><input type="checkbox" class="company-filter" value="Saracen Casino Resort"><span>Saracen Casino Resort</span></label>
+        <label><input type="checkbox" class="company-filter" value="Seminole Hard Rock Hotel &amp; Casino Hollywood"><span>Seminole Hard Rock Hotel &amp; Casino Hollywood</span></label>
+        <label><input type="checkbox" class="company-filter" value="Seminole Hard Rock Hotel &amp; Casino Tampa"><span>Seminole Hard Rock Hotel &amp; Casino Tampa</span></label>
+        <label><input type="checkbox" class="company-filter" value="Snoqualmie Casino"><span>Snoqualmie Casino</span></label>
+        <label><input type="checkbox" class="company-filter" value="South Point Hotel Casino &amp; Spa"><span>South Point Hotel Casino &amp; Spa</span></label>
+        <label><input type="checkbox" class="company-filter" value="Southland Casino Racing"><span>Southland Casino Racing</span></label>
+        <label><input type="checkbox" class="company-filter" value="Spirit Mountain Casino"><span>Spirit Mountain Casino</span></label>
+        <label><input type="checkbox" class="company-filter" value="Sportsbook Rhode Island"><span>Sportsbook Rhode Island</span></label>
+        <label><input type="checkbox" class="company-filter" value="Station Casinos"><span>Station Casinos</span></label>
+        <label><input type="checkbox" class="company-filter" value="Talking Stick Resort"><span>Talking Stick Resort</span></label>
+        <label><input type="checkbox" class="company-filter" value="Texas Card House"><span>Texas Card House</span></label>
+        <label><input type="checkbox" class="company-filter" value="The Greenbrier Casino Club"><span>The Greenbrier Casino Club</span></label>
+        <label><input type="checkbox" class="company-filter" value="Thunder Valley Casino Resort"><span>Thunder Valley Casino Resort</span></label>
+        <label><input type="checkbox" class="company-filter" value="Tin Lizzie Gaming Resort"><span>Tin Lizzie Gaming Resort</span></label>
+        <label><input type="checkbox" class="company-filter" value="Tioga Downs Casino Resort"><span>Tioga Downs Casino Resort</span></label>
+        <label><input type="checkbox" class="company-filter" value="Tiverton Casino Hotel"><span>Tiverton Casino Hotel</span></label>
+        <label><input type="checkbox" class="company-filter" value="Treasure Island Resort &amp; Casino"><span>Treasure Island Resort &amp; Casino</span></label>
+        <label><input type="checkbox" class="company-filter" value="Tropicana Atlantic City"><span>Tropicana Atlantic City</span></label>
+        <label><input type="checkbox" class="company-filter" value="Tulalip Resort Casino"><span>Tulalip Resort Casino</span></label>
+        <label><input type="checkbox" class="company-filter" value="Twin River Casino"><span>Twin River Casino</span></label>
+        <label><input type="checkbox" class="company-filter" value="WarHorse Casino Lincoln"><span>WarHorse Casino Lincoln</span></label>
+        <label><input type="checkbox" class="company-filter" value="WarHorse Casino Omaha"><span>WarHorse Casino Omaha</span></label>
+        <label><input type="checkbox" class="company-filter" value="Westgate Las Vegas SuperBook"><span>Westgate Las Vegas SuperBook</span></label>
+        <label><input type="checkbox" class="company-filter" value="Wild Horse Pass Hotel &amp; Casino"><span>Wild Horse Pass Hotel &amp; Casino</span></label>
+        <label><input type="checkbox" class="company-filter" value="William Hill Nevada"><span>William Hill Nevada</span></label>
+        <label><input type="checkbox" class="company-filter" value="Wind Creek Bethlehem"><span>Wind Creek Bethlehem</span></label>
+        <label><input type="checkbox" class="company-filter" value="WinStar World Casino and Resort"><span>WinStar World Casino and Resort</span></label>
+        <label><input type="checkbox" class="company-filter" value="Wynn Resorts"><span>Wynn Resorts</span></label></div>
+      </div>
     </div>
-    <div class="filter-group">
-      <h4>States <button type="button" data-clear="state">Clear</button></h4>
-      <label><input type="checkbox" class="state-filter" value="AK"> AK</label>
-      <label><input type="checkbox" class="state-filter" value="AR"> AR</label>
-      <label><input type="checkbox" class="state-filter" value="AZ"> AZ</label>
-      <label><input type="checkbox" class="state-filter" value="CA"> CA</label>
-      <label><input type="checkbox" class="state-filter" value="CO"> CO</label>
-      <label><input type="checkbox" class="state-filter" value="CT"> CT</label>
-      <label><input type="checkbox" class="state-filter" value="DE"> DE</label>
-      <label><input type="checkbox" class="state-filter" value="FL"> FL</label>
-      <label><input type="checkbox" class="state-filter" value="IA"> IA</label>
-      <label><input type="checkbox" class="state-filter" value="ID"> ID</label>
-      <label><input type="checkbox" class="state-filter" value="IL"> IL</label>
-      <label><input type="checkbox" class="state-filter" value="IN"> IN</label>
-      <label><input type="checkbox" class="state-filter" value="KS"> KS</label>
-      <label><input type="checkbox" class="state-filter" value="LA"> LA</label>
-      <label><input type="checkbox" class="state-filter" value="MA"> MA</label>
-      <label><input type="checkbox" class="state-filter" value="MD"> MD</label>
-      <label><input type="checkbox" class="state-filter" value="ME"> ME</label>
-      <label><input type="checkbox" class="state-filter" value="MI"> MI</label>
-      <label><input type="checkbox" class="state-filter" value="MN"> MN</label>
-      <label><input type="checkbox" class="state-filter" value="MO"> MO</label>
-      <label><input type="checkbox" class="state-filter" value="MS"> MS</label>
-      <label><input type="checkbox" class="state-filter" value="MT"> MT</label>
-      <label><input type="checkbox" class="state-filter" value="NC"> NC</label>
-      <label><input type="checkbox" class="state-filter" value="ND"> ND</label>
-      <label><input type="checkbox" class="state-filter" value="NE"> NE</label>
-      <label><input type="checkbox" class="state-filter" value="NH"> NH</label>
-      <label><input type="checkbox" class="state-filter" value="NJ"> NJ</label>
-      <label><input type="checkbox" class="state-filter" value="NM"> NM</label>
-      <label><input type="checkbox" class="state-filter" value="NV"> NV</label>
-      <label><input type="checkbox" class="state-filter" value="NY"> NY</label>
-      <label><input type="checkbox" class="state-filter" value="OH"> OH</label>
-      <label><input type="checkbox" class="state-filter" value="OK"> OK</label>
-      <label><input type="checkbox" class="state-filter" value="OR"> OR</label>
-      <label><input type="checkbox" class="state-filter" value="PA"> PA</label>
-      <label><input type="checkbox" class="state-filter" value="RI"> RI</label>
-      <label><input type="checkbox" class="state-filter" value="SD"> SD</label>
-      <label><input type="checkbox" class="state-filter" value="TN"> TN</label>
-      <label><input type="checkbox" class="state-filter" value="TX"> TX</label>
-      <label><input type="checkbox" class="state-filter" value="VA"> VA</label>
-      <label><input type="checkbox" class="state-filter" value="VT"> VT</label>
-      <label><input type="checkbox" class="state-filter" value="WA"> WA</label>
-      <label><input type="checkbox" class="state-filter" value="WI"> WI</label>
-      <label><input type="checkbox" class="state-filter" value="WV"> WV</label>
-      <label><input type="checkbox" class="state-filter" value="WY"> WY</label>
+
+    <div class="dropdown" data-filter="state">
+      <button type="button" class="dropdown-trigger" aria-haspopup="listbox" aria-expanded="false">
+        <span class="label">States</span>
+        <span class="value">All</span>
+        <span class="caret">&#9662;</span>
+      </button>
+      <div class="dropdown-panel">
+        <div class="panel-header"><span>States</span><button type="button" data-clear="state">Clear</button></div>
+        <div class="dropdown-options"><label><input type="checkbox" class="state-filter" value="AK"><span>AK</span></label>
+        <label><input type="checkbox" class="state-filter" value="AR"><span>AR</span></label>
+        <label><input type="checkbox" class="state-filter" value="AZ"><span>AZ</span></label>
+        <label><input type="checkbox" class="state-filter" value="CA"><span>CA</span></label>
+        <label><input type="checkbox" class="state-filter" value="CO"><span>CO</span></label>
+        <label><input type="checkbox" class="state-filter" value="CT"><span>CT</span></label>
+        <label><input type="checkbox" class="state-filter" value="DE"><span>DE</span></label>
+        <label><input type="checkbox" class="state-filter" value="FL"><span>FL</span></label>
+        <label><input type="checkbox" class="state-filter" value="IA"><span>IA</span></label>
+        <label><input type="checkbox" class="state-filter" value="ID"><span>ID</span></label>
+        <label><input type="checkbox" class="state-filter" value="IL"><span>IL</span></label>
+        <label><input type="checkbox" class="state-filter" value="IN"><span>IN</span></label>
+        <label><input type="checkbox" class="state-filter" value="KS"><span>KS</span></label>
+        <label><input type="checkbox" class="state-filter" value="LA"><span>LA</span></label>
+        <label><input type="checkbox" class="state-filter" value="MA"><span>MA</span></label>
+        <label><input type="checkbox" class="state-filter" value="MD"><span>MD</span></label>
+        <label><input type="checkbox" class="state-filter" value="ME"><span>ME</span></label>
+        <label><input type="checkbox" class="state-filter" value="MI"><span>MI</span></label>
+        <label><input type="checkbox" class="state-filter" value="MN"><span>MN</span></label>
+        <label><input type="checkbox" class="state-filter" value="MO"><span>MO</span></label>
+        <label><input type="checkbox" class="state-filter" value="MS"><span>MS</span></label>
+        <label><input type="checkbox" class="state-filter" value="MT"><span>MT</span></label>
+        <label><input type="checkbox" class="state-filter" value="NC"><span>NC</span></label>
+        <label><input type="checkbox" class="state-filter" value="ND"><span>ND</span></label>
+        <label><input type="checkbox" class="state-filter" value="NE"><span>NE</span></label>
+        <label><input type="checkbox" class="state-filter" value="NH"><span>NH</span></label>
+        <label><input type="checkbox" class="state-filter" value="NJ"><span>NJ</span></label>
+        <label><input type="checkbox" class="state-filter" value="NM"><span>NM</span></label>
+        <label><input type="checkbox" class="state-filter" value="NV"><span>NV</span></label>
+        <label><input type="checkbox" class="state-filter" value="NY"><span>NY</span></label>
+        <label><input type="checkbox" class="state-filter" value="OH"><span>OH</span></label>
+        <label><input type="checkbox" class="state-filter" value="OK"><span>OK</span></label>
+        <label><input type="checkbox" class="state-filter" value="OR"><span>OR</span></label>
+        <label><input type="checkbox" class="state-filter" value="PA"><span>PA</span></label>
+        <label><input type="checkbox" class="state-filter" value="RI"><span>RI</span></label>
+        <label><input type="checkbox" class="state-filter" value="SD"><span>SD</span></label>
+        <label><input type="checkbox" class="state-filter" value="TN"><span>TN</span></label>
+        <label><input type="checkbox" class="state-filter" value="TX"><span>TX</span></label>
+        <label><input type="checkbox" class="state-filter" value="VA"><span>VA</span></label>
+        <label><input type="checkbox" class="state-filter" value="VT"><span>VT</span></label>
+        <label><input type="checkbox" class="state-filter" value="WA"><span>WA</span></label>
+        <label><input type="checkbox" class="state-filter" value="WI"><span>WI</span></label>
+        <label><input type="checkbox" class="state-filter" value="WV"><span>WV</span></label>
+        <label><input type="checkbox" class="state-filter" value="WY"><span>WY</span></label></div>
+      </div>
     </div>
   </div>
 
   <div id="result-count">Showing 0 of 0 entities</div>
+
   <div id="activeFiltersBar" style="display:none;">
-    <div id="afLine1" style="font-size:13px;color:#333;margin:8px 0 4px 0;"></div>
-    <div id="afLine2" style="font-size:13px;color:#555;margin:0 0 12px 0;"></div>
+    <div id="afLine1" style="font-size:13px;color:#333;margin:0 0 4px 0;"></div>
+    <div id="afLine2" style="font-size:13px;color:#555;margin:0;"></div>
   </div>
+
   <button type="button" id="clearAllBtn">Clear All Filters</button>
 
   <table id="companyTable">
@@ -488,6 +574,25 @@
     try { return JSON.parse(json); } catch (e) { return fallback; }
   }
 
+  function updateTriggers() {
+    document.querySelectorAll(".dropdown").forEach(function (dd) {
+      var type = dd.dataset.filter;
+      var selected = selectedValues("." + type + "-filter");
+      var trigger = dd.querySelector(".dropdown-trigger");
+      var valueEl = trigger.querySelector(".value");
+      if (selected.length === 0) {
+        valueEl.textContent = "All";
+        trigger.classList.remove("has-selection");
+      } else if (selected.length <= 2) {
+        valueEl.textContent = selected.join(", ");
+        trigger.classList.add("has-selection");
+      } else {
+        valueEl.textContent = selected.length + " selected";
+        trigger.classList.add("has-selection");
+      }
+    });
+  }
+
   function applyFilters() {
     var search = (searchInput.value || "").trim().toLowerCase();
     var selNiches = selectedValues(".niche-filter");
@@ -523,6 +628,7 @@
     resultCount.textContent = "Showing " + visible + " of " + total + " entities";
     noResults.style.display = visible === 0 ? "block" : "none";
     renderActiveFilters(selNiches, selGeos, selCompanies, selStates);
+    updateTriggers();
   }
 
   function renderActiveFilters(niches, geos, companies, states) {
@@ -546,8 +652,8 @@
         rs.forEach(function (s) { if (counts.hasOwnProperty(s)) counts[s]++; });
       });
       var parts = states.map(function (s) { return s + ": " + counts[s]; });
-      var total = Object.keys(counts).reduce(function (a, k) { return a + counts[k]; }, 0);
-      l2.textContent = "Breakdown: " + parts.join("  ·  ") + "  —  " + total + " entities";
+      var sum = Object.keys(counts).reduce(function (a, k) { return a + counts[k]; }, 0);
+      l2.textContent = "Breakdown: " + parts.join("  ·  ") + "  —  " + sum + " entities";
     } else {
       l2.textContent = "";
     }
@@ -561,20 +667,52 @@
   }
 
   function clearAll() {
-    document.querySelectorAll(".filters input[type='checkbox']").forEach(function (cb) {
+    document.querySelectorAll(".dropdown-options input[type='checkbox']").forEach(function (cb) {
       cb.checked = false;
     });
     searchInput.value = "";
     applyFilters();
   }
 
+  function closeAllDropdowns() {
+    document.querySelectorAll(".dropdown-trigger.open").forEach(function (t) {
+      t.classList.remove("open");
+      t.setAttribute("aria-expanded", "false");
+      var panel = t.parentElement.querySelector(".dropdown-panel");
+      if (panel) panel.classList.remove("open");
+    });
+  }
+
+  document.querySelectorAll(".dropdown-trigger").forEach(function (trigger) {
+    trigger.addEventListener("click", function (e) {
+      e.stopPropagation();
+      var panel = trigger.parentElement.querySelector(".dropdown-panel");
+      var isOpen = panel.classList.contains("open");
+      closeAllDropdowns();
+      if (!isOpen) {
+        trigger.classList.add("open");
+        trigger.setAttribute("aria-expanded", "true");
+        panel.classList.add("open");
+      }
+    });
+  });
+
+  document.querySelectorAll(".dropdown-panel").forEach(function (panel) {
+    panel.addEventListener("click", function (e) { e.stopPropagation(); });
+  });
+
+  document.addEventListener("click", closeAllDropdowns);
+  document.addEventListener("keydown", function (e) {
+    if (e.key === "Escape") closeAllDropdowns();
+  });
+
   searchInput.addEventListener("input", applyFilters);
 
-  document.querySelectorAll(".filters input[type='checkbox']").forEach(function (cb) {
+  document.querySelectorAll(".dropdown-options input[type='checkbox']").forEach(function (cb) {
     cb.addEventListener("change", applyFilters);
   });
 
-  document.querySelectorAll(".filter-group h4 button[data-clear]").forEach(function (btn) {
+  document.querySelectorAll(".dropdown-panel [data-clear]").forEach(function (btn) {
     btn.addEventListener("click", function () { clearFilter(btn.dataset.clear); });
   });
 
