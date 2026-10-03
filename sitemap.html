@@ -2,127 +2,618 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
+<title>Sitemap - GAMBLE REG</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>GAMBLE REG — Main Pages Sitemap v1</title>
 <style>
-  :root { --brand:#1d4ed8; --ink:#0b1f3a; --slate:#64748b; }
-  * { box-sizing: border-box; }
-  body { margin:0; padding:32px 16px 48px;
-         background:#f8fafc; color:var(--ink);
-         font-family:'Segoe UI',system-ui,-apple-system,sans-serif; }
-  .wrap { max-width:1760px; margin:0 auto; }
-  .hdr { display:flex; align-items:baseline; gap:16px; flex-wrap:wrap;
-         padding:0 8px 20px; border-bottom:1px solid #e2e8f0; margin-bottom:24px; }
-  .hdr h1 { margin:0; font-size:22px; font-weight:800; letter-spacing:.3px; }
-  .hdr .badge { background:var(--brand); color:#fff; font-size:11px; font-weight:700;
-                padding:3px 9px; border-radius:999px; letter-spacing:.5px; }
-  .hdr .sub { color:var(--slate); font-size:13px; margin-left:auto; }
-  .card { background:#fff; border:1px solid #e2e8f0; border-radius:14px;
-          padding:16px; overflow-x:auto; box-shadow:0 1px 3px rgba(15,23,42,.04); }
-  svg { display:block; max-width:100%; height:auto; }
-  .note { margin-top:20px; padding:14px 18px; background:#f1f5f9;
-          border-left:3px solid var(--brand); border-radius:6px;
-          font-size:13px; color:#334155; line-height:1.55; }
-  .note strong { color:var(--ink); }
-  footer { margin-top:28px; text-align:center; font-size:12px; color:var(--slate); }
+:root{--brand:#1d4ed8;--brand-dark:#1e3a8a;--ink:#0b1f3a;--slate:#64748b;--slate-light:#94a3b8;--line:#e2e8f0;--bg:#f8fafc;}
+*{box-sizing:border-box;}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;margin:0;background:var(--bg);color:var(--ink);line-height:1.5;}
+header{background:var(--ink);color:#fff;padding:24px 32px;border-bottom:3px solid var(--brand);}
+header h1{margin:0;font-size:22px;letter-spacing:.02em;}
+header h1 span{color:var(--brand);}
+header .subtitle{color:var(--slate-light);margin:4px 0 0;font-size:14px;}
+main{max-width:1100px;margin:0 auto;padding:32px;}
+section{margin-bottom:36px;}
+section>h2{font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--slate);margin:0 0 16px;padding-bottom:8px;border-bottom:1px solid var(--line);}
+details{background:#fff;border:1px solid var(--line);border-radius:8px;margin-bottom:8px;overflow:hidden;}
+details>summary{cursor:pointer;padding:12px 16px;font-weight:600;font-size:14px;list-style:none;}
+details>summary::-webkit-details-marker{display:none;}
+details>summary::before{content:"\25B8";display:inline-block;width:18px;color:var(--slate);transition:transform .15s;}
+details[open]>summary::before{transform:rotate(90deg);}
+details>summary:hover{background:var(--bg);}
+details>summary .count{color:var(--slate);font-weight:400;font-size:13px;margin-left:6px;}
+details details{margin:0 16px 8px;background:var(--bg);}
+details details>summary{background:var(--bg);font-size:13px;padding:8px 12px;}
+.brand-list{padding:4px 16px 12px 34px;font-size:13px;color:var(--slate);display:flex;flex-wrap:wrap;gap:6px 12px;}
+.brand-list a{color:var(--brand);text-decoration:none;}
+.brand-list a:hover{text-decoration:underline;}
+.tbd{color:var(--slate-light);font-style:italic;font-size:13px;padding:8px 16px 12px 34px;}
+footer{background:var(--ink);color:var(--slate-light);margin-top:48px;padding:32px;}
+footer .footer-inner{max-width:1100px;margin:0 auto;}
+footer h3{color:#fff;font-size:13px;letter-spacing:.1em;text-transform:uppercase;margin:0 0 12px;}
+footer .legal-links{display:flex;flex-wrap:wrap;gap:8px 20px;font-size:13px;}
+footer a{color:var(--slate-light);text-decoration:none;}
+footer a:hover{color:#fff;text-decoration:underline;}
+footer .meta{margin-top:20px;font-size:12px;color:var(--slate);}
+.news-node{background:#fff;border:1px dashed var(--line);border-radius:8px;padding:12px 16px;font-size:14px;color:var(--slate);}
 </style>
 </head>
 <body>
-<div class="wrap">
-
-  <div class="hdr">
-    <h1>GAMBLE REG — Main Pages Sitemap</h1>
-    <span class="badge">v1 DRAFT</span>
-    <span class="sub">main / section pages only · individual review pages excluded</span>
-  </div>
-
-  <div class="card">
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1700 660" width="1700" height="660" font-family="'Segoe UI',system-ui,-apple-system,sans-serif">
-      <rect width="1700" height="660" fill="#f8fafc"/>
-
-      <text x="850" y="44" text-anchor="middle" font-size="24" font-weight="700" fill="#0b1f3a" letter-spacing="0.5">GAMBLE REG - MAIN PAGES SITE MAP</text>
-      <text x="850" y="68" text-anchor="middle" font-size="13" fill="#64748b">v1 | routes aligned to base.html + index template | individual review pages excluded</text>
-
-      <g stroke="#cbd5e1" stroke-width="2" fill="none">
-        <path d="M 850 150 V 185"/>
-        <path d="M 220 185 H 1480"/>
-        <path d="M 220 185 V 210"/>
-        <path d="M 640 185 V 210"/>
-        <path d="M 1060 185 V 210"/>
-        <path d="M 1480 185 V 210"/>
-      </g>
-
-      <rect x="700" y="90" width="300" height="60" rx="10" fill="#0b1f3a"/>
-      <text x="850" y="129" text-anchor="middle" font-size="22" font-weight="700" fill="#ffffff" letter-spacing="2">HOME  /</text>
-
-      <text x="850" y="200" text-anchor="middle" font-size="11" font-weight="600" fill="#94a3b8" letter-spacing="2">TIER 1 - PRIMARY NAV (base.html)</text>
-
-      <rect x="30" y="212" width="380" height="90" rx="10" fill="#1d4ed8"/>
-      <text x="220" y="252" text-anchor="middle" font-size="17" font-weight="700" fill="#ffffff" letter-spacing="1">REGIONS</text>
-      <text x="220" y="282" text-anchor="middle" font-size="12" fill="#bfdbfe" font-family="Consolas,monospace">/regions/</text>
-
-      <rect x="450" y="212" width="380" height="90" rx="10" fill="#1d4ed8"/>
-      <text x="640" y="252" text-anchor="middle" font-size="17" font-weight="700" fill="#ffffff" letter-spacing="1">COUNTRIES</text>
-      <text x="640" y="282" text-anchor="middle" font-size="12" fill="#bfdbfe" font-family="Consolas,monospace">/countries/</text>
-
-      <rect x="870" y="212" width="380" height="90" rx="10" fill="#1d4ed8"/>
-      <text x="1060" y="252" text-anchor="middle" font-size="17" font-weight="700" fill="#ffffff" letter-spacing="1">NEWS</text>
-      <text x="1060" y="282" text-anchor="middle" font-size="12" fill="#bfdbfe" font-family="Consolas,monospace">/news/</text>
-
-      <rect x="1290" y="212" width="380" height="90" rx="10" fill="#1d4ed8"/>
-      <text x="1480" y="252" text-anchor="middle" font-size="17" font-weight="700" fill="#ffffff" letter-spacing="1">ADVERTISE</text>
-      <text x="1480" y="282" text-anchor="middle" font-size="12" fill="#bfdbfe" font-family="Consolas,monospace">/advertise/</text>
-
-      <text x="850" y="345" text-anchor="middle" font-size="11" font-weight="600" fill="#94a3b8" letter-spacing="2">TIER 2 - DATA HUBS (proposed extension)</text>
-
-      <rect x="30" y="358" width="380" height="90" rx="10" fill="#ffffff" stroke="#1d4ed8" stroke-width="2" stroke-dasharray="6 4"/>
-      <text x="220" y="398" text-anchor="middle" font-size="16" font-weight="700" fill="#0b1f3a" letter-spacing="1">REVIEWS</text>
-      <text x="220" y="426" text-anchor="middle" font-size="11" fill="#64748b" font-family="Consolas,monospace">/reviews/{slug}/</text>
-
-      <rect x="450" y="358" width="380" height="90" rx="10" fill="#ffffff" stroke="#1d4ed8" stroke-width="2" stroke-dasharray="6 4"/>
-      <text x="640" y="398" text-anchor="middle" font-size="16" font-weight="700" fill="#0b1f3a" letter-spacing="1">STATES</text>
-      <text x="640" y="426" text-anchor="middle" font-size="11" fill="#64748b" font-family="Consolas,monospace">/states/{state}</text>
-
-      <rect x="870" y="358" width="380" height="90" rx="10" fill="#ffffff" stroke="#1d4ed8" stroke-width="2" stroke-dasharray="6 4"/>
-      <text x="1060" y="398" text-anchor="middle" font-size="16" font-weight="700" fill="#0b1f3a" letter-spacing="1">NICHES</text>
-      <text x="1060" y="426" text-anchor="middle" font-size="11" fill="#64748b" font-family="Consolas,monospace">/niches/{niche}</text>
-
-      <rect x="1290" y="358" width="380" height="90" rx="10" fill="#ffffff" stroke="#1d4ed8" stroke-width="2" stroke-dasharray="6 4"/>
-      <text x="1480" y="398" text-anchor="middle" font-size="16" font-weight="700" fill="#0b1f3a" letter-spacing="1">COMPANIES</text>
-      <text x="1480" y="426" text-anchor="middle" font-size="11" fill="#64748b" font-family="Consolas,monospace">/companies/</text>
-
-      <text x="850" y="490" text-anchor="middle" font-size="11" font-weight="600" fill="#94a3b8" letter-spacing="2">TIER 3 - SUPPORT / LEGAL (footer)</text>
-
-      <rect x="50" y="503" width="280" height="70" rx="8" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="1.5"/>
-      <text x="190" y="536" text-anchor="middle" font-size="14" font-weight="700" fill="#0b1f3a">ABOUT</text>
-      <text x="190" y="558" text-anchor="middle" font-size="11" fill="#64748b" font-family="Consolas,monospace">/about/</text>
-
-      <rect x="380" y="503" width="280" height="70" rx="8" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="1.5"/>
-      <text x="520" y="536" text-anchor="middle" font-size="14" font-weight="700" fill="#0b1f3a">CONTACT</text>
-      <text x="520" y="558" text-anchor="middle" font-size="11" fill="#64748b" font-family="Consolas,monospace">/contact/</text>
-
-      <rect x="710" y="503" width="280" height="70" rx="8" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="1.5"/>
-      <text x="850" y="536" text-anchor="middle" font-size="14" font-weight="700" fill="#0b1f3a">PRIVACY</text>
-      <text x="850" y="558" text-anchor="middle" font-size="11" fill="#64748b" font-family="Consolas,monospace">/privacy/</text>
-
-      <rect x="1040" y="503" width="280" height="70" rx="8" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="1.5"/>
-      <text x="1180" y="536" text-anchor="middle" font-size="14" font-weight="700" fill="#0b1f3a">TERMS</text>
-      <text x="1180" y="558" text-anchor="middle" font-size="11" fill="#64748b" font-family="Consolas,monospace">/terms/</text>
-
-      <rect x="1370" y="503" width="280" height="70" rx="8" fill="#f1f5f9" stroke="#e2e8f0" stroke-width="1.5"/>
-      <text x="1510" y="536" text-anchor="middle" font-size="14" font-weight="700" fill="#0b1f3a">COOKIES</text>
-      <text x="1510" y="558" text-anchor="middle" font-size="11" fill="#64748b" font-family="Consolas,monospace">/cookies/</text>
-
-      <text x="850" y="620" text-anchor="middle" font-size="12" fill="#64748b">Palette: brand-700 #1d4ed8 | ink #0b1f3a | slate. Dashed = proposed, not yet built. CTA buttons (Log in, Submit Listing) omitted - actions, not pages.</text>
-    </svg>
-  </div>
-
-  <div class="note">
-    <strong>Legend:</strong> Solid blue = live in <code>base.html</code> · Dashed = proposed Tier 2 extension · Tier 3 = footer links.
-    <br><strong>Open for Nate:</strong> Tier 2 launch timing · review URL pattern (<code>/reviews/{slug}/</code> vs <code>/companies/{slug}/</code>) · whether 44 state pages go into <code>sitemap.xml</code> at launch.
-  </div>
-
-  <footer>Gamble Reg · sitemap v1 draft · 2026-10-02</footer>
-</div>
+<header><h1>GAMBLE <span>REG</span></h1><p class="subtitle">Site Map</p></header>
+<main>
+<section><h2>Tier 1 - Markets</h2>
+<details>
+<summary>Casino games developers <span class="count">(1 states)</span></summary>
+<details>
+<summary>NV <span class="count">(1 brands)</span></summary>
+<div class="brand-list"><a href="/companies/mgm-resorts-international">MGM Resorts International</a></div>
+</details>
+</details>
+<details>
+<summary>Horse racing / racino <span class="count">(9 states)</span></summary>
+<details>
+<summary>AR <span class="count">(2 brands)</span></summary>
+<div class="brand-list"><a href="/companies/oaklawn-racing-casino-resort">Oaklawn Racing Casino Resort</a> <a href="/companies/southland-casino-racing">Southland Casino Racing</a></div>
+</details>
+<details>
+<summary>DE <span class="count">(2 brands)</span></summary>
+<div class="brand-list"><a href="/companies/delaware-park-casino-&-racing">Delaware Park Casino & Racing</a> <a href="/companies/dover-downs-hotel-&-casino">Dover Downs Hotel & Casino</a></div>
+</details>
+<details>
+<summary>IA <span class="count">(1 brands)</span></summary>
+<div class="brand-list"><a href="/companies/prairie-meadows-casino">Prairie Meadows Casino</a></div>
+</details>
+<details>
+<summary>IN <span class="count">(1 brands)</span></summary>
+<div class="brand-list"><a href="/companies/horseshoe-indianapolis">Horseshoe Indianapolis</a></div>
+</details>
+<details>
+<summary>MA <span class="count">(1 brands)</span></summary>
+<div class="brand-list"><a href="/companies/plainridge-park-casino">Plainridge Park Casino</a></div>
+</details>
+<details>
+<summary>MD <span class="count">(1 brands)</span></summary>
+<div class="brand-list"><a href="/companies/ocean-downs-casino">Ocean Downs Casino</a></div>
+</details>
+<details>
+<summary>NY <span class="count">(3 brands)</span></summary>
+<div class="brand-list"><a href="/companies/batavia-downs-gaming-&-hotel">Batavia Downs Gaming & Hotel</a> <a href="/companies/finger-lakes-gaming-&-racetrack">Finger Lakes Gaming & Racetrack</a> <a href="/companies/tioga-downs-casino-resort">Tioga Downs Casino Resort</a></div>
+</details>
+<details>
+<summary>PA <span class="count">(1 brands)</span></summary>
+<div class="brand-list"><a href="/companies/hollywood-casino-at-penn-national-race-course">Hollywood Casino at Penn National Race Course</a></div>
+</details>
+<details>
+<summary>WV <span class="count">(2 brands)</span></summary>
+<div class="brand-list"><a href="/companies/hollywood-casino-at-charles-town-races">Hollywood Casino at Charles Town Races</a> <a href="/companies/mountaineer-casino-racetrack-&-resort">Mountaineer Casino Racetrack & Resort</a></div>
+</details>
+</details>
+<details>
+<summary>Lottery operator <span class="count">(2 states)</span></summary>
+<details>
+<summary>DE <span class="count">(1 brands)</span></summary>
+<div class="brand-list"><a href="/companies/delaware-lottery-sports-betting">Delaware Lottery Sports Betting</a></div>
+</details>
+<details>
+<summary>MT <span class="count">(1 brands)</span></summary>
+<div class="brand-list"><a href="/companies/montana-lottery-sports-betting">Montana Lottery Sports Betting</a></div>
+</details>
+</details>
+<details>
+<summary>Online casino operator <span class="count">(21 states)</span></summary>
+<details>
+<summary>AZ <span class="count">(1 brands)</span></summary>
+<div class="brand-list"><a href="/companies/fanduel-sportsbook">FanDuel Sportsbook</a></div>
+</details>
+<details>
+<summary>CO <span class="count">(1 brands)</span></summary>
+<div class="brand-list"><a href="/companies/fanduel-sportsbook">FanDuel Sportsbook</a></div>
+</details>
+<details>
+<summary>CT <span class="count">(1 brands)</span></summary>
+<div class="brand-list"><a href="/companies/fanduel-at-mohegan-sun">FanDuel at Mohegan Sun</a></div>
+</details>
+<details>
+<summary>FL <span class="count">(2 brands)</span></summary>
+<div class="brand-list"><a href="/companies/hard-rock-bet">Hard Rock Bet</a> <a href="/companies/seminole-hard-rock-hotel-&-casino-hollywood">Seminole Hard Rock Hotel & Casino Hollywood</a></div>
+</details>
+<details>
+<summary>IL <span class="count">(3 brands)</span></summary>
+<div class="brand-list"><a href="/companies/betrivers">BetRivers</a> <a href="/companies/draftkings-at-casino-queen">DraftKings at Casino Queen</a> <a href="/companies/fanduel-sportsbook">FanDuel Sportsbook</a></div>
+</details>
+<details>
+<summary>IN <span class="count">(1 brands)</span></summary>
+<div class="brand-list"><a href="/companies/fanduel-sportsbook">FanDuel Sportsbook</a></div>
+</details>
+<details>
+<summary>MA <span class="count">(1 brands)</span></summary>
+<div class="brand-list"><a href="/companies/fanduel-sportsbook">FanDuel Sportsbook</a></div>
+</details>
+<details>
+<summary>MD <span class="count">(1 brands)</span></summary>
+<div class="brand-list"><a href="/companies/fanduel-sportsbook">FanDuel Sportsbook</a></div>
+</details>
+<details>
+<summary>MI <span class="count">(2 brands)</span></summary>
+<div class="brand-list"><a href="/companies/betmgm">BetMGM</a> <a href="/companies/fanduel-sportsbook">FanDuel Sportsbook</a></div>
+</details>
+<details>
+<summary>MS <span class="count">(1 brands)</span></summary>
+<div class="brand-list"><a href="/companies/betmgm">BetMGM</a></div>
+</details>
+<details>
+<summary>MT <span class="count">(1 brands)</span></summary>
+<div class="brand-list"><a href="/companies/betmgm">BetMGM</a></div>
+</details>
+<details>
+<summary>NH <span class="count">(1 brands)</span></summary>
+<div class="brand-list"><a href="/companies/fanduel-sportsbook">FanDuel Sportsbook</a></div>
+</details>
+<details>
+<summary>NJ <span class="count">(2 brands)</span></summary>
+<div class="brand-list"><a href="/companies/fanduel-sportsbook">FanDuel Sportsbook</a> <a href="/companies/golden-nugget-atlantic-city">Golden Nugget Atlantic City</a></div>
+</details>
+<details>
+<summary>NV <span class="count">(2 brands)</span></summary>
+<div class="brand-list"><a href="/companies/caesars-entertainment">Caesars Entertainment</a> <a href="/companies/mgm-resorts-international">MGM Resorts International</a></div>
+</details>
+<details>
+<summary>NY <span class="count">(2 brands)</span></summary>
+<div class="brand-list"><a href="/companies/draftkings">DraftKings</a> <a href="/companies/fanduel-sportsbook">FanDuel Sportsbook</a></div>
+</details>
+<details>
+<summary>OH <span class="count">(1 brands)</span></summary>
+<div class="brand-list"><a href="/companies/fanduel-sportsbook">FanDuel Sportsbook</a></div>
+</details>
+<details>
+<summary>PA <span class="count">(3 brands)</span></summary>
+<div class="brand-list"><a href="/companies/draftkings">DraftKings</a> <a href="/companies/fanduel-sportsbook">FanDuel Sportsbook</a> <a href="/companies/parx-casino">Parx Casino</a></div>
+</details>
+<details>
+<summary>TN <span class="count">(2 brands)</span></summary>
+<div class="brand-list"><a href="/companies/betmgm">BetMGM</a> <a href="/companies/fanduel-sportsbook">FanDuel Sportsbook</a></div>
+</details>
+<details>
+<summary>VA <span class="count">(1 brands)</span></summary>
+<div class="brand-list"><a href="/companies/fanduel-sportsbook">FanDuel Sportsbook</a></div>
+</details>
+<details>
+<summary>VT <span class="count">(1 brands)</span></summary>
+<div class="brand-list"><a href="/companies/fanduel-sportsbook">FanDuel Sportsbook</a></div>
+</details>
+<details>
+<summary>WY <span class="count">(2 brands)</span></summary>
+<div class="brand-list"><a href="/companies/betmgm">BetMGM</a> <a href="/companies/fanduel-sportsbook">FanDuel Sportsbook</a></div>
+</details>
+</details>
+<details>
+<summary>Online sportsbook operator <span class="count">(28 states)</span></summary>
+<details>
+<summary>AZ <span class="count">(2 brands)</span></summary>
+<div class="brand-list"><a href="/companies/draftkings-sportsbook">DraftKings Sportsbook</a> <a href="/companies/fanduel-sportsbook">FanDuel Sportsbook</a></div>
+</details>
+<details>
+<summary>CO <span class="count">(2 brands)</span></summary>
+<div class="brand-list"><a href="/companies/draftkings-sportsbook">DraftKings Sportsbook</a> <a href="/companies/fanduel-sportsbook">FanDuel Sportsbook</a></div>
+</details>
+<details>
+<summary>CT <span class="count">(1 brands)</span></summary>
+<div class="brand-list"><a href="/companies/fanduel-at-mohegan-sun">FanDuel at Mohegan Sun</a></div>
+</details>
+<details>
+<summary>FL <span class="count">(2 brands)</span></summary>
+<div class="brand-list"><a href="/companies/hard-rock-bet">Hard Rock Bet</a> <a href="/companies/seminole-hard-rock-hotel-&-casino-hollywood">Seminole Hard Rock Hotel & Casino Hollywood</a></div>
+</details>
+<details>
+<summary>IA <span class="count">(1 brands)</span></summary>
+<div class="brand-list"><a href="/companies/draftkings-sportsbook">DraftKings Sportsbook</a></div>
+</details>
+<details>
+<summary>IL <span class="count">(3 brands)</span></summary>
+<div class="brand-list"><a href="/companies/betrivers">BetRivers</a> <a href="/companies/draftkings-at-casino-queen">DraftKings at Casino Queen</a> <a href="/companies/fanduel-sportsbook">FanDuel Sportsbook</a></div>
+</details>
+<details>
+<summary>IN <span class="count">(2 brands)</span></summary>
+<div class="brand-list"><a href="/companies/draftkings-sportsbook">DraftKings Sportsbook</a> <a href="/companies/fanduel-sportsbook">FanDuel Sportsbook</a></div>
+</details>
+<details>
+<summary>KS <span class="count">(1 brands)</span></summary>
+<div class="brand-list"><a href="/companies/draftkings-sportsbook">DraftKings Sportsbook</a></div>
+</details>
+<details>
+<summary>LA <span class="count">(1 brands)</span></summary>
+<div class="brand-list"><a href="/companies/caesars-sportsbook">Caesars Sportsbook</a></div>
+</details>
+<details>
+<summary>MA <span class="count">(2 brands)</span></summary>
+<div class="brand-list"><a href="/companies/draftkings-sportsbook">DraftKings Sportsbook</a> <a href="/companies/fanduel-sportsbook">FanDuel Sportsbook</a></div>
+</details>
+<details>
+<summary>MD <span class="count">(1 brands)</span></summary>
+<div class="brand-list"><a href="/companies/fanduel-sportsbook">FanDuel Sportsbook</a></div>
+</details>
+<details>
+<summary>MI <span class="count">(2 brands)</span></summary>
+<div class="brand-list"><a href="/companies/betmgm">BetMGM</a> <a href="/companies/fanduel-sportsbook">FanDuel Sportsbook</a></div>
+</details>
+<details>
+<summary>MO <span class="count">(1 brands)</span></summary>
+<div class="brand-list"><a href="/companies/caesars-sportsbook">Caesars Sportsbook</a></div>
+</details>
+<details>
+<summary>MS <span class="count">(1 brands)</span></summary>
+<div class="brand-list"><a href="/companies/betmgm">BetMGM</a></div>
+</details>
+<details>
+<summary>MT <span class="count">(2 brands)</span></summary>
+<div class="brand-list"><a href="/companies/betmgm">BetMGM</a> <a href="/companies/draftkings-sportsbook">DraftKings Sportsbook</a></div>
+</details>
+<details>
+<summary>NC <span class="count">(1 brands)</span></summary>
+<div class="brand-list"><a href="/companies/draftkings-sportsbook">DraftKings Sportsbook</a></div>
+</details>
+<details>
+<summary>NH <span class="count">(2 brands)</span></summary>
+<div class="brand-list"><a href="/companies/draftkings-sportsbook">DraftKings Sportsbook</a> <a href="/companies/fanduel-sportsbook">FanDuel Sportsbook</a></div>
+</details>
+<details>
+<summary>NJ <span class="count">(3 brands)</span></summary>
+<div class="brand-list"><a href="/companies/draftkings-at-resorts">DraftKings at Resorts</a> <a href="/companies/fanduel-sportsbook">FanDuel Sportsbook</a> <a href="/companies/golden-nugget-atlantic-city">Golden Nugget Atlantic City</a></div>
+</details>
+<details>
+<summary>NV <span class="count">(3 brands)</span></summary>
+<div class="brand-list"><a href="/companies/caesars-entertainment">Caesars Entertainment</a> <a href="/companies/mgm-resorts-international">MGM Resorts International</a> <a href="/companies/william-hill-nevada">William Hill Nevada</a></div>
+</details>
+<details>
+<summary>NY <span class="count">(2 brands)</span></summary>
+<div class="brand-list"><a href="/companies/draftkings">DraftKings</a> <a href="/companies/fanduel-sportsbook">FanDuel Sportsbook</a></div>
+</details>
+<details>
+<summary>OH <span class="count">(2 brands)</span></summary>
+<div class="brand-list"><a href="/companies/draftkings-sportsbook">DraftKings Sportsbook</a> <a href="/companies/fanduel-sportsbook">FanDuel Sportsbook</a></div>
+</details>
+<details>
+<summary>OR <span class="count">(1 brands)</span></summary>
+<div class="brand-list"><a href="/companies/draftkings-sportsbook">DraftKings Sportsbook</a></div>
+</details>
+<details>
+<summary>PA <span class="count">(3 brands)</span></summary>
+<div class="brand-list"><a href="/companies/draftkings">DraftKings</a> <a href="/companies/fanduel-sportsbook">FanDuel Sportsbook</a> <a href="/companies/parx-casino">Parx Casino</a></div>
+</details>
+<details>
+<summary>TN <span class="count">(3 brands)</span></summary>
+<div class="brand-list"><a href="/companies/betmgm">BetMGM</a> <a href="/companies/draftkings-sportsbook">DraftKings Sportsbook</a> <a href="/companies/fanduel-sportsbook">FanDuel Sportsbook</a></div>
+</details>
+<details>
+<summary>VA <span class="count">(2 brands)</span></summary>
+<div class="brand-list"><a href="/companies/draftkings-sportsbook">DraftKings Sportsbook</a> <a href="/companies/fanduel-sportsbook">FanDuel Sportsbook</a></div>
+</details>
+<details>
+<summary>VT <span class="count">(2 brands)</span></summary>
+<div class="brand-list"><a href="/companies/draftkings-sportsbook">DraftKings Sportsbook</a> <a href="/companies/fanduel-sportsbook">FanDuel Sportsbook</a></div>
+</details>
+<details>
+<summary>WV <span class="count">(1 brands)</span></summary>
+<div class="brand-list"><a href="/companies/draftkings-sportsbook">DraftKings Sportsbook</a></div>
+</details>
+<details>
+<summary>WY <span class="count">(3 brands)</span></summary>
+<div class="brand-list"><a href="/companies/betmgm">BetMGM</a> <a href="/companies/draftkings-sportsbook">DraftKings Sportsbook</a> <a href="/companies/fanduel-sportsbook">FanDuel Sportsbook</a></div>
+</details>
+</details>
+<details>
+<summary>Retail casino operator <span class="count">(39 states)</span></summary>
+<details>
+<summary>AK <span class="count">(1 brands)</span></summary>
+<div class="brand-list"><a href="/companies/alaska-native-owned-bingo-halls">Alaska Native-owned bingo halls</a></div>
+</details>
+<details>
+<summary>AR <span class="count">(3 brands)</span></summary>
+<div class="brand-list"><a href="/companies/oaklawn-racing-casino-resort">Oaklawn Racing Casino Resort</a> <a href="/companies/saracen-casino-resort">Saracen Casino Resort</a> <a href="/companies/southland-casino-racing">Southland Casino Racing</a></div>
+</details>
+<details>
+<summary>AZ <span class="count">(3 brands)</span></summary>
+<div class="brand-list"><a href="/companies/desert-diamond-casino">Desert Diamond Casino</a> <a href="/companies/talking-stick-resort">Talking Stick Resort</a> <a href="/companies/wild-horse-pass-hotel-&-casino">Wild Horse Pass Hotel & Casino</a></div>
+</details>
+<details>
+<summary>CA <span class="count">(6 brands)</span></summary>
+<div class="brand-list"><a href="/companies/bay-101-casino">Bay 101 Casino</a> <a href="/companies/bicycle-casino">Bicycle Casino</a> <a href="/companies/commerce-casino">Commerce Casino</a> <a href="/companies/morongo-casino-resort-&-spa">Morongo Casino Resort & Spa</a> <a href="/companies/pecheanga-resort-casino">Pecheanga Resort Casino</a> <a href="/companies/thunder-valley-casino-resort">Thunder Valley Casino Resort</a></div>
+</details>
+<details>
+<summary>CO <span class="count">(4 brands)</span></summary>
+<div class="brand-list"><a href="/companies/ameristar-casino-resort-spa-black-hawk">Ameristar Casino Resort Spa Black Hawk</a> <a href="/companies/golden-gates-casino">Golden Gates Casino</a> <a href="/companies/isle-casino-hotel-black-hawk">Isle Casino Hotel Black Hawk</a> <a href="/companies/monarch-casino-resort-spa">Monarch Casino Resort Spa</a></div>
+</details>
+<details>
+<summary>CT <span class="count">(2 brands)</span></summary>
+<div class="brand-list"><a href="/companies/foxwoods-resort-casino">Foxwoods Resort Casino</a> <a href="/companies/mohegan-sun">Mohegan Sun</a></div>
+</details>
+<details>
+<summary>DE <span class="count">(2 brands)</span></summary>
+<div class="brand-list"><a href="/companies/delaware-park-casino-&-racing">Delaware Park Casino & Racing</a> <a href="/companies/dover-downs-hotel-&-casino">Dover Downs Hotel & Casino</a></div>
+</details>
+<details>
+<summary>FL <span class="count">(5 brands)</span></summary>
+<div class="brand-list"><a href="/companies/fontainebleau-miami-beach">Fontainebleau Miami Beach</a> <a href="/companies/hard-rock-bet">Hard Rock Bet</a> <a href="/companies/magic-city-casino">Magic City Casino</a> <a href="/companies/seminole-hard-rock-hotel-&-casino-hollywood">Seminole Hard Rock Hotel & Casino Hollywood</a> <a href="/companies/seminole-hard-rock-hotel-&-casino-tampa">Seminole Hard Rock Hotel & Casino Tampa</a></div>
+</details>
+<details>
+<summary>IA <span class="count">(4 brands)</span></summary>
+<div class="brand-list"><a href="/companies/ameristar-casino-hotel-council-bluffs">Ameristar Casino Hotel Council Bluffs</a> <a href="/companies/diamond-jo-casino">Diamond Jo Casino</a> <a href="/companies/horseshoe-council-bluffs">Horseshoe Council Bluffs</a> <a href="/companies/prairie-meadows-casino">Prairie Meadows Casino</a></div>
+</details>
+<details>
+<summary>ID <span class="count">(2 brands)</span></summary>
+<div class="brand-list"><a href="/companies/coeur-d'alene-casino-resort-hotel">Coeur d'Alene Casino Resort Hotel</a> <a href="/companies/fort-hall-casino">Fort Hall Casino</a></div>
+</details>
+<details>
+<summary>IL <span class="count">(5 brands)</span></summary>
+<div class="brand-list"><a href="/companies/draftkings-at-casino-queen">DraftKings at Casino Queen</a> <a href="/companies/grand-victoria-casino">Grand Victoria Casino</a> <a href="/companies/harrah's-joliet">Harrah's Joliet</a> <a href="/companies/hollywood-casino-aurora">Hollywood Casino Aurora</a> <a href="/companies/rivers-casino-des-plaines">Rivers Casino Des Plaines</a></div>
+</details>
+<details>
+<summary>IN <span class="count">(4 brands)</span></summary>
+<div class="brand-list"><a href="/companies/ameristar-casino-east-chicago">Ameristar Casino East Chicago</a> <a href="/companies/blue-chip-casino-hotel-spa">Blue Chip Casino Hotel Spa</a> <a href="/companies/hard-rock-casino-northern-indiana">Hard Rock Casino Northern Indiana</a> <a href="/companies/horseshoe-indianapolis">Horseshoe Indianapolis</a></div>
+</details>
+<details>
+<summary>KS <span class="count">(3 brands)</span></summary>
+<div class="brand-list"><a href="/companies/boot-hill-casino-&-resort">Boot Hill Casino & Resort</a> <a href="/companies/hollywood-casino-at-kansas-speedway">Hollywood Casino at Kansas Speedway</a> <a href="/companies/kansas-star-casino">Kansas Star Casino</a></div>
+</details>
+<details>
+<summary>LA <span class="count">(5 brands)</span></summary>
+<div class="brand-list"><a href="/companies/boomtown-casino-&-hotel">Boomtown Casino & Hotel</a> <a href="/companies/golden-nugget-lake-charles">Golden Nugget Lake Charles</a> <a href="/companies/harrah's-new-orleans">Harrah's New Orleans</a> <a href="/companies/l'auberge-casino-&-hotel-baton-rouge">L'Auberge Casino & Hotel Baton Rouge</a> <a href="/companies/margaritaville-resort-casino">Margaritaville Resort Casino</a></div>
+</details>
+<details>
+<summary>MA <span class="count">(3 brands)</span></summary>
+<div class="brand-list"><a href="/companies/encore-boston-harbor">Encore Boston Harbor</a> <a href="/companies/mgm-springfield">MGM Springfield</a> <a href="/companies/plainridge-park-casino">Plainridge Park Casino</a></div>
+</details>
+<details>
+<summary>MD <span class="count">(4 brands)</span></summary>
+<div class="brand-list"><a href="/companies/horseshoe-casino-baltimore">Horseshoe Casino Baltimore</a> <a href="/companies/live!-casino-&-hotel-maryland">Live! Casino & Hotel Maryland</a> <a href="/companies/mgm-national-harbor">MGM National Harbor</a> <a href="/companies/ocean-downs-casino">Ocean Downs Casino</a></div>
+</details>
+<details>
+<summary>ME <span class="count">(2 brands)</span></summary>
+<div class="brand-list"><a href="/companies/hollywood-casino-bangor">Hollywood Casino Bangor</a> <a href="/companies/oxford-casino-hotel">Oxford Casino Hotel</a></div>
+</details>
+<details>
+<summary>MI <span class="count">(5 brands)</span></summary>
+<div class="brand-list"><a href="/companies/firekeepers-casino-hotel">FireKeepers Casino Hotel</a> <a href="/companies/gun-lake-casino">Gun Lake Casino</a> <a href="/companies/hollywood-casino-at-greektown">Hollywood Casino at Greektown</a> <a href="/companies/mgm-grand-detroit">MGM Grand Detroit</a> <a href="/companies/motorcity-casino-hotel">MotorCity Casino Hotel</a></div>
+</details>
+<details>
+<summary>MN <span class="count">(3 brands)</span></summary>
+<div class="brand-list"><a href="/companies/grand-casino-mille-lacs">Grand Casino Mille Lacs</a> <a href="/companies/mystic-lake-casino-hotel">Mystic Lake Casino Hotel</a> <a href="/companies/treasure-island-resort-&-casino">Treasure Island Resort & Casino</a></div>
+</details>
+<details>
+<summary>MO <span class="count">(4 brands)</span></summary>
+<div class="brand-list"><a href="/companies/ameristar-casino-resort-spa-st.-charles">Ameristar Casino Resort Spa St. Charles</a> <a href="/companies/harrah's-north-kansas-city">Harrah's North Kansas City</a> <a href="/companies/hollywood-casino-st.-louis">Hollywood Casino St. Louis</a> <a href="/companies/river-city-casino-&-hotel">River City Casino & Hotel</a></div>
+</details>
+<details>
+<summary>MS <span class="count">(5 brands)</span></summary>
+<div class="brand-list"><a href="/companies/beau-rivage-resort-&-casino">Beau Rivage Resort & Casino</a> <a href="/companies/gold-strike-casino-resort">Gold Strike Casino Resort</a> <a href="/companies/hard-rock-hotel-&-casino-biloxi">Hard Rock Hotel & Casino Biloxi</a> <a href="/companies/ip-casino-resort-spa">IP Casino Resort Spa</a> <a href="/companies/pearl-river-resort">Pearl River Resort</a></div>
+</details>
+<details>
+<summary>NC <span class="count">(2 brands)</span></summary>
+<div class="brand-list"><a href="/companies/harrah's-cherokee-casino-resort">Harrah's Cherokee Casino Resort</a> <a href="/companies/harrah's-cherokee-valley-river-casino-&-hotel">Harrah's Cherokee Valley River Casino & Hotel</a></div>
+</details>
+<details>
+<summary>ND <span class="count">(2 brands)</span></summary>
+<div class="brand-list"><a href="/companies/4-bears-casino-&-lodge">4 Bears Casino & Lodge</a> <a href="/companies/prairie-knights-casino-&-resort">Prairie Knights Casino & Resort</a></div>
+</details>
+<details>
+<summary>NE <span class="count">(2 brands)</span></summary>
+<div class="brand-list"><a href="/companies/warhorse-casino-lincoln">WarHorse Casino Lincoln</a> <a href="/companies/warhorse-casino-omaha">WarHorse Casino Omaha</a></div>
+</details>
+<details>
+<summary>NJ <span class="count">(8 brands)</span></summary>
+<div class="brand-list"><a href="/companies/borgata-hotel-casino-&-spa">Borgata Hotel Casino & Spa</a> <a href="/companies/caesars-atlantic-city">Caesars Atlantic City</a> <a href="/companies/golden-nugget-atlantic-city">Golden Nugget Atlantic City</a> <a href="/companies/hard-rock-hotel-&-casino-atlantic-city">Hard Rock Hotel & Casino Atlantic City</a> <a href="/companies/harrah's-resort-atlantic-city">Harrah's Resort Atlantic City</a> <a href="/companies/ocean-casino-resort">Ocean Casino Resort</a> <a href="/companies/resorts-casino-hotel">Resorts Casino Hotel</a> <a href="/companies/tropicana-atlantic-city">Tropicana Atlantic City</a></div>
+</details>
+<details>
+<summary>NM <span class="count">(3 brands)</span></summary>
+<div class="brand-list"><a href="/companies/buffalo-thunder-resort-&-casino">Buffalo Thunder Resort & Casino</a> <a href="/companies/isleta-resort-&-casino">Isleta Resort & Casino</a> <a href="/companies/sandia-resort-&-casino">Sandia Resort & Casino</a></div>
+</details>
+<details>
+<summary>NV <span class="count">(10 brands)</span></summary>
+<div class="brand-list"><a href="/companies/boyd-gaming">Boyd Gaming</a> <a href="/companies/caesars-entertainment">Caesars Entertainment</a> <a href="/companies/circa-resort-&-casino">Circa Resort & Casino</a> <a href="/companies/golden-entertainment">Golden Entertainment</a> <a href="/companies/las-vegas-sands">Las Vegas Sands</a> <a href="/companies/mgm-resorts-international">MGM Resorts International</a> <a href="/companies/red-rock-resorts">Red Rock Resorts</a> <a href="/companies/south-point-hotel-casino-&-spa">South Point Hotel Casino & Spa</a> <a href="/companies/station-casinos">Station Casinos</a> <a href="/companies/wynn-resorts">Wynn Resorts</a></div>
+</details>
+<details>
+<summary>NY <span class="count">(6 brands)</span></summary>
+<div class="brand-list"><a href="/companies/batavia-downs-gaming-&-hotel">Batavia Downs Gaming & Hotel</a> <a href="/companies/finger-lakes-gaming-&-racetrack">Finger Lakes Gaming & Racetrack</a> <a href="/companies/resorts-world-catskills">Resorts World Catskills</a> <a href="/companies/rivers-casino-&-resort-schenectady">Rivers Casino & Resort Schenectady</a> <a href="/companies/tioga-downs-casino-resort">Tioga Downs Casino Resort</a> <a href="/companies/del-lago-resort-&-casino">del Lago Resort & Casino</a></div>
+</details>
+<details>
+<summary>OH <span class="count">(4 brands)</span></summary>
+<div class="brand-list"><a href="/companies/hollywood-casino-columbus">Hollywood Casino Columbus</a> <a href="/companies/hollywood-casino-toledo">Hollywood Casino Toledo</a> <a href="/companies/jack-cincinnati-casino">Jack Cincinnati Casino</a> <a href="/companies/jack-cleveland-casino">Jack Cleveland Casino</a></div>
+</details>
+<details>
+<summary>OK <span class="count">(4 brands)</span></summary>
+<div class="brand-list"><a href="/companies/choctaw-casino-&-resort-durant">Choctaw Casino & Resort Durant</a> <a href="/companies/hard-rock-hotel-&-casino-tulsa">Hard Rock Hotel & Casino Tulsa</a> <a href="/companies/riverwind-casino">Riverwind Casino</a> <a href="/companies/winstar-world-casino-and-resort">WinStar World Casino and Resort</a></div>
+</details>
+<details>
+<summary>OR <span class="count">(2 brands)</span></summary>
+<div class="brand-list"><a href="/companies/chinook-winds-casino-resort">Chinook Winds Casino Resort</a> <a href="/companies/spirit-mountain-casino">Spirit Mountain Casino</a></div>
+</details>
+<details>
+<summary>PA <span class="count">(7 brands)</span></summary>
+<div class="brand-list"><a href="/companies/hollywood-casino-at-penn-national-race-course">Hollywood Casino at Penn National Race Course</a> <a href="/companies/live!-casino-pittsburgh">Live! Casino Pittsburgh</a> <a href="/companies/mohegan-pennsylvania">Mohegan Pennsylvania</a> <a href="/companies/mount-airy-casino-resort">Mount Airy Casino Resort</a> <a href="/companies/parx-casino">Parx Casino</a> <a href="/companies/rivers-casino-philadelphia">Rivers Casino Philadelphia</a> <a href="/companies/wind-creek-bethlehem">Wind Creek Bethlehem</a></div>
+</details>
+<details>
+<summary>RI <span class="count">(2 brands)</span></summary>
+<div class="brand-list"><a href="/companies/tiverton-casino-hotel">Tiverton Casino Hotel</a> <a href="/companies/twin-river-casino">Twin River Casino</a></div>
+</details>
+<details>
+<summary>SD <span class="count">(3 brands)</span></summary>
+<div class="brand-list"><a href="/companies/cadillac-jack's-gaming-resort">Cadillac Jack's Gaming Resort</a> <a href="/companies/deadwood-mountain-grand">Deadwood Mountain Grand</a> <a href="/companies/tin-lizzie-gaming-resort">Tin Lizzie Gaming Resort</a></div>
+</details>
+<details>
+<summary>TX <span class="count">(4 brands)</span></summary>
+<div class="brand-list"><a href="/companies/choctaw-casino-&-resort-durant">Choctaw Casino & Resort Durant</a> <a href="/companies/kickapoo-lucky-eagle-casino">Kickapoo Lucky Eagle Casino</a> <a href="/companies/texas-card-house">Texas Card House</a> <a href="/companies/winstar-world-casino-and-resort">WinStar World Casino and Resort</a></div>
+</details>
+<details>
+<summary>VA <span class="count">(2 brands)</span></summary>
+<div class="brand-list"><a href="/companies/hard-rock-hotel-&-casino-bristol">Hard Rock Hotel & Casino Bristol</a> <a href="/companies/rivers-casino-portsmouth">Rivers Casino Portsmouth</a></div>
+</details>
+<details>
+<summary>WA <span class="count">(4 brands)</span></summary>
+<div class="brand-list"><a href="/companies/emerald-queen-casino">Emerald Queen Casino</a> <a href="/companies/muckleshoot-casino">Muckleshoot Casino</a> <a href="/companies/snoqualmie-casino">Snoqualmie Casino</a> <a href="/companies/tulalip-resort-casino">Tulalip Resort Casino</a></div>
+</details>
+<details>
+<summary>WI <span class="count">(3 brands)</span></summary>
+<div class="brand-list"><a href="/companies/ho-chunk-gaming-wisconsin-dells">Ho-Chunk Gaming Wisconsin Dells</a> <a href="/companies/oneida-casino">Oneida Casino</a> <a href="/companies/potawatomi-hotel-&-casino">Potawatomi Hotel & Casino</a></div>
+</details>
+<details>
+<summary>WV <span class="count">(3 brands)</span></summary>
+<div class="brand-list"><a href="/companies/hollywood-casino-at-charles-town-races">Hollywood Casino at Charles Town Races</a> <a href="/companies/mountaineer-casino-racetrack-&-resort">Mountaineer Casino Racetrack & Resort</a> <a href="/companies/the-greenbrier-casino-club">The Greenbrier Casino Club</a></div>
+</details>
+</details>
+<details>
+<summary>Retail sportsbook operator <span class="count">(11 states)</span></summary>
+<details>
+<summary>AR <span class="count">(1 brands)</span></summary>
+<div class="brand-list"><a href="/companies/oaklawn-racing-casino-resort">Oaklawn Racing Casino Resort</a></div>
+</details>
+<details>
+<summary>CT <span class="count">(2 brands)</span></summary>
+<div class="brand-list"><a href="/companies/draftkings-at-foxwoods">DraftKings at Foxwoods</a> <a href="/companies/fanduel-at-mohegan-sun">FanDuel at Mohegan Sun</a></div>
+</details>
+<details>
+<summary>DE <span class="count">(1 brands)</span></summary>
+<div class="brand-list"><a href="/companies/delaware-park-casino-&-racing">Delaware Park Casino & Racing</a></div>
+</details>
+<details>
+<summary>FL <span class="count">(2 brands)</span></summary>
+<div class="brand-list"><a href="/companies/hard-rock-bet">Hard Rock Bet</a> <a href="/companies/seminole-hard-rock-hotel-&-casino-hollywood">Seminole Hard Rock Hotel & Casino Hollywood</a></div>
+</details>
+<details>
+<summary>IL <span class="count">(1 brands)</span></summary>
+<div class="brand-list"><a href="/companies/draftkings-at-casino-queen">DraftKings at Casino Queen</a></div>
+</details>
+<details>
+<summary>LA <span class="count">(1 brands)</span></summary>
+<div class="brand-list"><a href="/companies/caesars-sportsbook">Caesars Sportsbook</a></div>
+</details>
+<details>
+<summary>MO <span class="count">(1 brands)</span></summary>
+<div class="brand-list"><a href="/companies/caesars-sportsbook">Caesars Sportsbook</a></div>
+</details>
+<details>
+<summary>NV <span class="count">(4 brands)</span></summary>
+<div class="brand-list"><a href="/companies/caesars-entertainment">Caesars Entertainment</a> <a href="/companies/mgm-resorts-international">MGM Resorts International</a> <a href="/companies/westgate-las-vegas-superbook">Westgate Las Vegas SuperBook</a> <a href="/companies/william-hill-nevada">William Hill Nevada</a></div>
+</details>
+<details>
+<summary>NY <span class="count">(1 brands)</span></summary>
+<div class="brand-list"><a href="/companies/del-lago-resort-&-casino">del Lago Resort & Casino</a></div>
+</details>
+<details>
+<summary>OK <span class="count">(1 brands)</span></summary>
+<div class="brand-list"><a href="/companies/hard-rock-hotel-&-casino-tulsa">Hard Rock Hotel & Casino Tulsa</a></div>
+</details>
+<details>
+<summary>PA <span class="count">(3 brands)</span></summary>
+<div class="brand-list"><a href="/companies/mohegan-pennsylvania">Mohegan Pennsylvania</a> <a href="/companies/parx-casino">Parx Casino</a> <a href="/companies/rivers-casino-philadelphia">Rivers Casino Philadelphia</a></div>
+</details>
+</details>
+<details>
+<summary>Sportsbook software provider <span class="count">(4 states)</span></summary>
+<details>
+<summary>MT <span class="count">(1 brands)</span></summary>
+<div class="brand-list"><a href="/companies/montana-lottery-sports-betting">Montana Lottery Sports Betting</a></div>
+</details>
+<details>
+<summary>NY <span class="count">(1 brands)</span></summary>
+<div class="brand-list"><a href="/companies/draftkings">DraftKings</a></div>
+</details>
+<details>
+<summary>PA <span class="count">(1 brands)</span></summary>
+<div class="brand-list"><a href="/companies/draftkings">DraftKings</a></div>
+</details>
+<details>
+<summary>RI <span class="count">(1 brands)</span></summary>
+<div class="brand-list"><a href="/companies/sportsbook-rhode-island">Sportsbook Rhode Island</a></div>
+</details>
+</details>
+<details>
+<summary>iGaming platform provider <span class="count">(2 states)</span></summary>
+<details>
+<summary>NY <span class="count">(1 brands)</span></summary>
+<div class="brand-list"><a href="/companies/draftkings">DraftKings</a></div>
+</details>
+<details>
+<summary>PA <span class="count">(1 brands)</span></summary>
+<div class="brand-list"><a href="/companies/draftkings">DraftKings</a></div>
+</details>
+</details>
+</section>
+<section><h2>Tier 2 - Regions</h2>
+<details>
+<summary>North America</summary>
+<div class="tbd">Countries TBD (pending David/Nate)</div>
+</details>
+<details>
+<summary>Latin America</summary>
+<div class="tbd">Countries TBD (pending David/Nate)</div>
+</details>
+<details>
+<summary>Europe</summary>
+<div class="tbd">Countries TBD (pending David/Nate)</div>
+</details>
+<details>
+<summary>Africa</summary>
+<div class="tbd">Countries TBD (pending David/Nate)</div>
+</details>
+<details>
+<summary>Asia</summary>
+<div class="tbd">Countries TBD (pending David/Nate)</div>
+</details>
+<details>
+<summary>Oceania</summary>
+<div class="tbd">Countries TBD (pending David/Nate)</div>
+</details>
+</section>
+<section><h2>Tier 3 - States (US)</h2>
+<div class="brand-list" style="padding-left:16px;"><a href="/states/ak">AK</a></div>
+<div class="brand-list" style="padding-left:16px;"><a href="/states/ar">AR</a></div>
+<div class="brand-list" style="padding-left:16px;"><a href="/states/az">AZ</a></div>
+<div class="brand-list" style="padding-left:16px;"><a href="/states/ca">CA</a></div>
+<div class="brand-list" style="padding-left:16px;"><a href="/states/co">CO</a></div>
+<div class="brand-list" style="padding-left:16px;"><a href="/states/ct">CT</a></div>
+<div class="brand-list" style="padding-left:16px;"><a href="/states/de">DE</a></div>
+<div class="brand-list" style="padding-left:16px;"><a href="/states/fl">FL</a></div>
+<div class="brand-list" style="padding-left:16px;"><a href="/states/ia">IA</a></div>
+<div class="brand-list" style="padding-left:16px;"><a href="/states/id">ID</a></div>
+<div class="brand-list" style="padding-left:16px;"><a href="/states/il">IL</a></div>
+<div class="brand-list" style="padding-left:16px;"><a href="/states/in">IN</a></div>
+<div class="brand-list" style="padding-left:16px;"><a href="/states/ks">KS</a></div>
+<div class="brand-list" style="padding-left:16px;"><a href="/states/la">LA</a></div>
+<div class="brand-list" style="padding-left:16px;"><a href="/states/ma">MA</a></div>
+<div class="brand-list" style="padding-left:16px;"><a href="/states/md">MD</a></div>
+<div class="brand-list" style="padding-left:16px;"><a href="/states/me">ME</a></div>
+<div class="brand-list" style="padding-left:16px;"><a href="/states/mi">MI</a></div>
+<div class="brand-list" style="padding-left:16px;"><a href="/states/mn">MN</a></div>
+<div class="brand-list" style="padding-left:16px;"><a href="/states/mo">MO</a></div>
+<div class="brand-list" style="padding-left:16px;"><a href="/states/ms">MS</a></div>
+<div class="brand-list" style="padding-left:16px;"><a href="/states/mt">MT</a></div>
+<div class="brand-list" style="padding-left:16px;"><a href="/states/nc">NC</a></div>
+<div class="brand-list" style="padding-left:16px;"><a href="/states/nd">ND</a></div>
+<div class="brand-list" style="padding-left:16px;"><a href="/states/ne">NE</a></div>
+<div class="brand-list" style="padding-left:16px;"><a href="/states/nh">NH</a></div>
+<div class="brand-list" style="padding-left:16px;"><a href="/states/nj">NJ</a></div>
+<div class="brand-list" style="padding-left:16px;"><a href="/states/nm">NM</a></div>
+<div class="brand-list" style="padding-left:16px;"><a href="/states/nv">NV</a></div>
+<div class="brand-list" style="padding-left:16px;"><a href="/states/ny">NY</a></div>
+<div class="brand-list" style="padding-left:16px;"><a href="/states/oh">OH</a></div>
+<div class="brand-list" style="padding-left:16px;"><a href="/states/ok">OK</a></div>
+<div class="brand-list" style="padding-left:16px;"><a href="/states/or">OR</a></div>
+<div class="brand-list" style="padding-left:16px;"><a href="/states/pa">PA</a></div>
+<div class="brand-list" style="padding-left:16px;"><a href="/states/ri">RI</a></div>
+<div class="brand-list" style="padding-left:16px;"><a href="/states/sd">SD</a></div>
+<div class="brand-list" style="padding-left:16px;"><a href="/states/tn">TN</a></div>
+<div class="brand-list" style="padding-left:16px;"><a href="/states/tx">TX</a></div>
+<div class="brand-list" style="padding-left:16px;"><a href="/states/va">VA</a></div>
+<div class="brand-list" style="padding-left:16px;"><a href="/states/vt">VT</a></div>
+<div class="brand-list" style="padding-left:16px;"><a href="/states/wa">WA</a></div>
+<div class="brand-list" style="padding-left:16px;"><a href="/states/wi">WI</a></div>
+<div class="brand-list" style="padding-left:16px;"><a href="/states/wv">WV</a></div>
+<div class="brand-list" style="padding-left:16px;"><a href="/states/wy">WY</a></div>
+</section>
+<section><h2>News / Blog</h2>
+<div class="news-node">Placement TBD - pending Nate's reply (where does News/Blog live?).</div>
+</section>
+</main>
+<footer><div class="footer-inner"><h3>Legal</h3><div class="legal-links"><a href="/disclaimer">Disclaimer</a> <a href="/privacy-policy">Privacy Policy</a> <a href="/terms-of-use">Terms of Use</a> <a href="/responsible-gambling">Responsible Gambling</a> <a href="/cookies">Cookies</a> <a href="/contact">Contact</a> <a href="/affiliate-disclosure">Affiliate Disclosure</a></div><div class="meta">Generated from research/us_brands.json. Skeleton v2 - countries, Canadian provinces, and News/Blog placement pending.</div></div></footer>
 </body>
 </html>
